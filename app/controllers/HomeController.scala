@@ -24,9 +24,16 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   def index = Action {
 
     lazy val teilnehmer = TableQuery[TeilnehmerTable]
-    val db = Database.forConfig("mysql")
+    val db = Database.forConfig("onedayvr")
     db.createSession()
 
+    //db.run(teilnehmer+=Teilnehmer("kirill", "meng", "kimeng@htwg-konstanz.de"))
+
+    val erg = db.run(teilnehmer.result)
+    while(!erg.isCompleted){}
+
+    import scala.concurrent.ExecutionContext.Implicits.global
+    erg.foreach(println)
     Ok(views.html.index("Your new application is ready."))
   }
 
