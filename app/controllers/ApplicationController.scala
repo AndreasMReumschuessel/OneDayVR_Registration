@@ -4,21 +4,21 @@ import model.{Teilnehmer, TeilnehmerTable, Firma, FirmaTable}
 import slick.jdbc.MySQLProfile.api._
 import slick.lifted.TableQuery
 
-class ApplicationController(cc: ControllerComponents) extends AbstractController(cc){
+class ApplicationController extends Controller{
   lazy val teilnehmer = TableQuery[TeilnehmerTable]
   lazy val firma = TableQuery[FirmaTable]
   val db = Database.forConfig("onedayvr")
 
-  def index():Result={
-    db.createSession()
-    Results.ok(views.html.index("Hallo"))
+  def index=Action{
+    //db.createSession()
+    Ok(views.html.index("Hallo"))
   }
-  def saveStock(): Request ={
+  def saveStock =Action{
     request =>
       val json = request.body.asJson.get
-      val stock = json.as[Stock]
+      val stock = json.as[String]
       println(stock)
-      Results.Ok("")
+      Ok
   }
 
   def listAll():Unit={
