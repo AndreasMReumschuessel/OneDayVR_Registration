@@ -10,7 +10,7 @@ final case class Firma(
                              ort: String,
                              land: String
                            )
-final class TeilnehmerTable(tag: Tag) extends Table[Firma](tag, "firma"){
+final class FirmaTable(tag: Tag) extends Table[Firma](tag, "firma"){
 
   def firmenname = column[String]("firmenname")
   def strasse    = column[String]("strasse")
