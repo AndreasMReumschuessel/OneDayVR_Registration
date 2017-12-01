@@ -15,3 +15,5 @@ libraryDependencies ++= Seq(
   "com.typesafe.play" %% "play-slick" % "3.0.0",
   "com.typesafe.play" %% "play-slick-evolutions" % "3.0.0"
 )
+
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.7"
