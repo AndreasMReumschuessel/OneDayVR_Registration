@@ -16,8 +16,7 @@ class ApplicationController extends Controller{
   def saveStock =Action{
     request =>
       val json = request.body.asJson.get
-      val stock = json.as[String]
-      println(stock)
+      println(json)
       Ok
   }
 
