@@ -1,11 +1,14 @@
 package controllers
+import javax.inject.{Inject, Singleton}
+
 import play.api.mvc._
-import model.{Teilnehmer, TeilnehmerTable, Firma, FirmaTable}
+import model.{Firma, FirmaTable, Teilnehmer, TeilnehmerTable}
 import slick.jdbc.MySQLProfile.api._
 import slick.lifted.TableQuery
 import play.api.libs.json._
 
-class ApplicationController extends Controller{
+@Singleton
+class ApplicationController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
   lazy val teilnehmer = TableQuery[TeilnehmerTable]
   lazy val firma = TableQuery[FirmaTable]
   val db = Database.forConfig("onedayvr")
