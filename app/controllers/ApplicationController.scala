@@ -50,7 +50,12 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
 
 
       val fnummer:Int = insertFirma(Firma(firmenname, DEFAULT_FIRMENID, strasse, hausnummer, plz, ort,land))
-      insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer))
+      try{
+        insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer))
+      } catch{
+        case ex: Exception => FAILED_DEPENDENCY
+      }
+
       Ok
   }
 

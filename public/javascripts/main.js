@@ -19,8 +19,15 @@ function submitForm() {
         data: formData,
         dataType: 'html',
         contentType: 'application/json; charset=utf-8',
-        success: successfullySubmitted
+        success: successfullySubmitted,
+        error: failSubmit
     });
+}
+
+function failSubmit(){
+    let p = $('#registrierung');
+    p.modal('toggle');
+    p.after("<div class='alert alert-danger alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a> <strong>Registrierung nicht erfolgreich!</strong> Es sind keine Plätze mehr frei.</div>")
 }
 
 function successfullySubmitted(){
