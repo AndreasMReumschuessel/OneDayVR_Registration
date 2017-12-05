@@ -1,4 +1,5 @@
-@(message: String, style: String = "scala") 
+@(message: String, style: String = "scala")
+@import helper._
 
 @defining(play.core.PlayVersion.current) { version =>
   <div class="main">
@@ -23,18 +24,18 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form id="registrationForm" name="registrationForm">
                         <div class="form-group">
                             <label for="vorname">Vorname</label>
-                            <input type="text" class="form-control" id="vorname" placeholder="Vorname">
+                            <input type="text" class="form-control" id="vorname" name="vorname" placeholder="Vorname">
                         </div>
                         <div class="form-group">
                             <label for="nachname">Nachname</label>
-                            <input type="text" class="form-control" id="nachname" placeholder="Nachname">
+                            <input type="text" class="form-control" id="nachname" name="nachname" placeholder="Nachname">
                         </div>
                         <div class="form-group">
                             <label for="email">E-Mail Addresse</label>
-                            <input type="email" class="form-control" id="email" placeholder="abcATxyz.de">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="abcATxyz.de">
                         </div>
                         <div class="form-check form-check-inline">
                             <label class="form-check-label">
@@ -48,33 +49,33 @@
                         </div>
                         <div class="form-group">
                             <label for="firmenname">Firmenname</label>
-                            <input disabled="disabled" type="text" class="form-control" id="firmenname" placeholder="Firmenname">
+                            <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname" placeholder="Firmenname">
                         </div>
                         <div class="form-group">
                             <label for="strasse">Strasse</label>
-                            <input type="text" class="form-control" id="strasse" placeholder="Strasse">
+                            <input type="text" class="form-control" name="strasse" id="strasse" placeholder="Strasse">
                         </div>
                         <div class="form-group">
                             <label for="hausnummer">Hausnummer</label>
-                            <input type="text" class="form-control" id="hausnummer" placeholder="Hausnummer">
+                            <input type="text" class="form-control" name="hausnummer" id="hausnummer" placeholder="Hausnummer">
                         </div>
                         <div class="form-group">
                             <label for="postleitzahl">Postleitzahl</label>
-                            <input type="text" class="form-control" id="postleitzahl" placeholder="12345">
+                            <input type="text" class="form-control" name="postleitzahl" id="postleitzahl" placeholder="12345">
                         </div>
                         <div class="form-group">
                             <label for="Ort">Ort</label>
-                            <input type="text" class="form-control" id="ort" placeholder="Ort">
+                            <input type="text" class="form-control" name="ort" id="ort" placeholder="Ort">
                         </div>
                         <div class="form-group">
                             <label for="land">Land</label>
-                            <input type="text" class="form-control" id="land" placeholder="Land">
+                            <input type="text" class="form-control" name="land" id="land" placeholder="Land">
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Schliessen</button>
-                    <button type="button" class="btn btn-primary">Senden</button>
+                    <button onclick="submitForm()" type="button" class="btn btn-primary">Senden</button>
                 </div>
             </div>
         </div>
