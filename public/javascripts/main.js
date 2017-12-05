@@ -17,9 +17,17 @@ function submitForm() {
         type: "POST",
         url: "/saveStock",
         data: formData,
-        dataType: 'json',
-        contentType: 'application/json; charset=utf-8'
+        dataType: 'html',
+        contentType: 'application/json; charset=utf-8',
+        success: successfullySubmitted
     });
+}
+
+function successfullySubmitted(){
+    let p = $('#registrierung');
+    p.modal('toggle');
+    p.after("<div class='alert alert-success alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a> <strong>Resgistrierung erfolgreich!</strong> Wir freuen uns auf Ihr kommen. </div>")
+
 }
 function objectifyForm(formArray) {//serialize data function
 
