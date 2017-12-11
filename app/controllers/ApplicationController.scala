@@ -15,7 +15,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
   val DEFAULT_FIRMENID = 0
 
   def index=Action{
-    db.createSession()
+    //db.createSession()
     Ok(views.html.index("Hallo"))
   }
 
