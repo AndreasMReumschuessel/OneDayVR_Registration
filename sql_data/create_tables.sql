@@ -3,7 +3,7 @@ CREATE TABLE firma (
   firmenname VARCHAR(50),
   strasse VARCHAR(30) NOT NULL,
   hausnummer VARCHAR(5) NOT NULL,
-  plz INT(5) NOT NULL,
+  plz VARCHAR(5) NOT NULL,
   ort VARCHAR(30) NOT NULL,
   land VARCHAR(30) NOT NULL
 ) ENGINE=INNODB;
