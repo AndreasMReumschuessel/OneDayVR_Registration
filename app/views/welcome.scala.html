@@ -151,22 +151,32 @@
                                                         <div class="btSubTitle">Registrieren Sie sich jetzt f&uuml;r die One Day_VR Konferenz am 22. und 23. Februar 2017.</div>
                                                     </header>
                                                     <div class="btText">
-                                                        <form id="registrationForm" name="registrationForm">
+                                                        <form id="registrationForm" name="registrationForm" onsubmit="return validate()">
                                                             <div class="form-group" style="float: left;">
-                                                                <label for="vorname">Anrede*</label>
-                                                                <input type="text" class="form-control" id="anrede" name="anrede">
+                                                                <label for="anrede">Anrede*</label>
+                                                                <select class="form-control" id="anrede" name="anrede">
+                                                                    <option value="Herr">Frau</option>
+                                                                    <option value="Frau">Herr</option>
+                                                                </select>
                                                             </div>
                                                             <div class="form-group" style="float: right;">
-                                                                <label for="vorname">Titel</label>
-                                                                <input type="text" class="form-control" id="titel" name="titel">
+                                                                <label for="titel">Titel</label>
+                                                                <select class="form-control" id="titel" name="titel">
+                                                                    <option value=""></option>
+                                                                    <option value="Professor">Prof.</option>
+                                                                    <option value="Dr.">Dr.</option>
+                                                                    <option value="Professor Dr.">Prof. Dr.</option>
+                                                                </select>
                                                             </div>
                                                             <div class="form-group" style="float: left;">
                                                                 <label for="vorname">Vorname*</label>
                                                                 <input type="text" class="form-control" id="vorname" name="vorname">
+                                                                <p id="vornameError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: right;">
                                                                 <label for="nachname">Nachname*</label>
                                                                 <input type="text" class="form-control" id="nachname" name="nachname">
+                                                                <p id="nachnameError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: left; margin-bottom: 0.9rem;">
                                                                 <label for="firmenname" style="margin-right: 30px;">Firmenname</label>
@@ -185,22 +195,30 @@
                                                             <div class="form-group" style="float: right;">
                                                                 <label for="strasse">Strasse/Nummer*</label>
                                                                 <input type="text" class="form-control" name="strasse" id="strasse">
+                                                                <p id="streetError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: left;">
                                                                 <label for="postleitzahl">Postleitzahl*</label>
                                                                 <input type="text" class="form-control" name="postleitzahl" id="postleitzahl">
+                                                                <p id="postleitzahlError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: right;">
-                                                                <label for="Ort">Ort*</label>
+                                                                <label for="ort">Ort*</label>
                                                                 <input type="text" class="form-control" name="ort" id="ort">
+                                                                <p id="ortError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: left;">
-                                                                <label for="Ort">Telefon*</label>
+                                                                <label for="telefon">Telefon*</label>
                                                                 <input type="text" class="form-control" name="telefon" id="telefon">
+                                                                <p id="telefonError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: right;">
                                                                 <label for="email">E-Mail Addresse*</label>
                                                                 <input type="email" class="form-control" id="email" name="email">
+                                                                <p id="emailError"></p>
+                                                            </div>
+                                                            <div class="form-group submitDiv">
+                                                                <button onclick="validate();" type="button" class="btn btn-primary submitButton">Senden</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -450,36 +468,7 @@
     <!-- /pageWrap -->
 
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/comment-reply.min.js")"></script>
-    <script type="text/javascript">
-            /* <![CDATA[ */
-            var wpcf7 = {
-                "apiSettings": {
-                    "root": "http:\/\/designinkonstanz.de\/index.php?rest_route=\/contact-form-7\/v1",
-                    "namespace": "contact-form-7\/v1"
-                },
-                "recaptcha": {
-                    "messages": {
-                        "empty": "Bitte best\u00e4tige, dass du keine Maschine bist."
-                    }
-                }
-            };
-            /* ]]> */
-    </script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/scripts.js")"></script>
-    <script type="text/javascript">
-            /* <![CDATA[ */
-            var newsletter = {
-                "messages": {
-                    "email_error": "Die E-Mail ist nicht korrekt.",
-                    "name_error": "Der Name ist nicht korrekt.",
-                    "surname_error": "The last name is not correct",
-                    "profile_error": "",
-                    "privacy_error": "You must accept the privacy statement"
-                },
-                "profile_max": "20"
-            };
-            /* ]]> */
-    </script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/validate.js")"></script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/wp-embed.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/bt_parallax.js")"></script>

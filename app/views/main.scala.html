@@ -21,6 +21,10 @@
         <link rel="alternate" type="application/rss+xml" title="onedayvr3 » Feed" href="http://designinkonstanz.de/?feed=rss2">
         <link rel="alternate" type="application/rss+xml" title="onedayvr3 » Kommentar-Feed" href="http://designinkonstanz.de/?feed=comments-rss2">
         <link rel="alternate" type="application/rss+xml" title="onedayvr3 » Home Kommentar-Feed" href="http://designinkonstanz.de/?feed=rss2&amp;page_id=2">
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
         <script async="" src="@routes.Assets.versioned("javascripts/analytics.js ")"></script>
         <script src="@routes.Assets.versioned("javascripts/enquire.min.js")"></script>
         <script type="text/javascript">
@@ -89,11 +93,10 @@
                     padding: 0 !important;
                 }
         </style>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js " integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh " crossorigin="anonymous "></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js " integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ " crossorigin="anonymous "></script>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
         <link rel="stylesheet" id="contact-form-7-css" href="@routes.Assets.versioned("stylesheets/styles.css")" type="text/css " media="all " data-viewport-units-buggyfill="ignore ">
         <link rel="stylesheet " id="boldthemes_style_css-css " href="@routes.Assets.versioned("stylesheets/style.crush.css")" type="text/css " media="all " data-viewport-units-buggyfill="ignore ">
         <link rel="stylesheet " id="boldthemes_buggyfill_css-css " href="@routes.Assets.versioned("stylesheets/viewport-buggyfill.css")" type="text/css " media="all ">
@@ -103,10 +106,11 @@
         <link rel="stylesheet " id="newsletter-subscription-css " href="@routes.Assets.versioned("stylesheets/style.css")" type="text/css " media="all " data-viewport-units-buggyfill="ignore ">
         <script type="text/javascript " src="@routes.Assets.versioned("javascripts/jquery-migrate.min.js") "></script>
         <script type="text/javascript " src="@routes.Assets.versioned( "javascripts/jquery.dd.js") "></script>
+        <script type="text/javascript " src="@routes.Assets.versioned( "javascripts/jquery.magnific-popup.min.js") "></script>
         <script type="text/javascript " src="@routes.Assets.versioned( "javascripts/bt_elements.js") "></script>
         <script type="text/javascript " src="@routes.Assets.versioned( "javascripts/viewport-units-buggyfill.js") "></script>
         <script type="text/javascript " src="@routes.Assets.versioned( "javascripts/slick.min.js") "></script>
-        <script type="text/javascript " src="@routes.Assets.versioned( "javascripts/jquery.magnific-popup.min.js") "></script>
+
         <script type="text/javascript " src="@routes.Assets.versioned( "javascripts/iscroll.js") "></script>
         <script type="text/javascript " src="@routes.Assets.versioned( "javascripts/fancySelect.js") "></script>
             <!--[if lte IE 9]><script type='text/javascript' src='http://designinkonstanz.de/wp-content/themes/eventim/js/html5shiv.min.js?ver=4.9.1'></script>
@@ -138,11 +142,11 @@
         </script>
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/header.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+
 <body>
     @* And here's where we render the `Html` object containing
     * the page content. *@
     @content
     <script src="@routes.Assets.versioned( "javascripts/main.js") " type="text/javascript "></script>
-
 </body>
 </html>
