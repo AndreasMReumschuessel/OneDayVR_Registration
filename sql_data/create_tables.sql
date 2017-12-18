@@ -3,16 +3,19 @@ CREATE TABLE firma (
   firmenname VARCHAR(50),
   strasse VARCHAR(30) NOT NULL,
   hausnummer VARCHAR(5) NOT NULL,
-  plz INT(5) NOT NULL,
+  plz VARCHAR(5) NOT NULL,
   ort VARCHAR(30) NOT NULL,
   land VARCHAR(30) NOT NULL
 ) ENGINE=INNODB;
 
 CREATE TABLE teilnehmer (
   tnummer INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  anrede VARCHAR(5) NOT NULL,
+  titel VARCHAR(10),
   nachname VARCHAR(50) NOT NULL,
   vorname VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL,
+  telefon VARCHAR(50) NOT NULL,
   fnummer INT(6) UNSIGNED,
   FOREIGN KEY (fnummer) REFERENCES firma(fnummer)
 ) ENGINE=INNODB;

@@ -2,82 +2,497 @@
 @import helper._
 
 @defining(play.core.PlayVersion.current) { version =>
-  <div class="main">
-      <div class="container" style="text-align: center;">
-          <div class="col-sm-12"><h1>OneDay VR Registrierung</h1></div>
-          <div class="col-sm-12">Hier können Sie sich für OneDayVR registrieren.</div>
-          <div class="col-sm-12" style="margin-top: 20px;"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registrierung">
-              Registrieren
-          </button>
-          </div>
-              <!-- Modal -->
-
-      </div>
-  </div>
-    <div class="modal fade" id="registrierung" tabindex="-1" role="dialog" aria-labelledby="registrierungLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Registrierung</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="registrationForm" name="registrationForm">
-                        <div class="form-group">
-                            <label for="vorname">Vorname</label>
-                            <input type="text" class="form-control" id="vorname" name="vorname" placeholder="Vorname">
-                        </div>
-                        <div class="form-group">
-                            <label for="nachname">Nachname</label>
-                            <input type="text" class="form-control" id="nachname" name="nachname" placeholder="Nachname">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-Mail Addresse</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="abcATxyz.de">
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="radio" name="firmaOptions" id="firma" value="firma"> Firma
-                            </label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <label class="form-check-label">
-                                <input class="form-check-input" type="radio" name="firmaOptions" id="privat" value="privat"> Privat
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label for="firmenname">Firmenname</label>
-                            <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname" placeholder="Firmenname">
-                        </div>
-                        <div class="form-group">
-                            <label for="strasse">Strasse</label>
-                            <input type="text" class="form-control" name="strasse" id="strasse" placeholder="Strasse">
-                        </div>
-                        <div class="form-group">
-                            <label for="hausnummer">Hausnummer</label>
-                            <input type="text" class="form-control" name="hausnummer" id="hausnummer" placeholder="Hausnummer">
-                        </div>
-                        <div class="form-group">
-                            <label for="postleitzahl">Postleitzahl</label>
-                            <input type="text" class="form-control" name="postleitzahl" id="postleitzahl" placeholder="12345">
-                        </div>
-                        <div class="form-group">
-                            <label for="Ort">Ort</label>
-                            <input type="text" class="form-control" name="ort" id="ort" placeholder="Ort">
-                        </div>
-                        <div class="form-group">
-                            <label for="land">Land</label>
-                            <input type="text" class="form-control" name="land" id="land" placeholder="Land">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schliessen</button>
-                    <button onclick="submitForm()" type="button" class="btn btn-primary">Senden</button>
-                </div>
+    <div id="btPreloader" class="btPreloader fullScreenHeight removePreloader">
+        <div class="animation">
+            <div><img class="preloaderLogo" src="@routes.Assets.versioned("images/LogoTransparent.png")" alt="onedayvr3"">
             </div>
+            <div class="btLoader"></div>
+            <p></p>
         </div>
     </div>
+    <!-- /.preloader -->
+
+    <div class="btPageWrap" id="top">
+        <header class="mainHeader btClear gutter  btDarkSkin">
+            <div class="port">
+                <div class="btLogoArea menuHolder btClear">
+                    <span class="btVerticalMenuTrigger">&nbsp;<span class="btIco btIcoSmallSize btIcoDefaultColor btIcoDefaultType"><a href="http://designinkonstanz.de/#" target="_self" data-ico-fa="" class="btIcoHolder"></a></span></span>
+                    <span class="btHorizontalMenuTrigger">&nbsp;<span class="btIco btIcoSmallSize btIcoDefaultColor btIcoDefaultType"><a href="http://designinkonstanz.de/#" target="_self" data-ico-fa="" class="btIcoHolder"></a></span></span>
+                    <div class="logo">
+                        <span>
+                            <a href="http://designinkonstanz.de/"><img class="btMainLogo" data-hw="7.032967032967" src="@routes.Assets.versioned("images/LogoTransparent.png")" alt="onedayvr3" style="display: none;">
+                                <img class="btAltLogo" src="@routes.Assets.versioned("images/IMG-20171205-WA0000-1.jpg")" alt="onedayvr3" style="display: inline;">
+                            </a>
+                        </span>
+                    </div>
+                        <!-- /logo -->
+                    <div class="menuPort" style="visibility: visible;">
+                        <nav>
+                            <ul id="menu-primary-menu" class="menu">
+                                <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="#info">Info</a>
+                                </li>
+                                <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="#anmeldung">Anmeldung</a>
+                                </li>
+                                <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="#programm">Programm</a>
+                                </li>
+                                <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="#anfahrt">Anfahrt</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                        <!-- .menuPort -->
+                </div>
+                    <!-- /menuHolder / btBelowLogoArea -->
+            </div>
+                <!-- /port -->
+        </header>
+            <!-- /.mainHeader -->
+        <div class="btContentWrap btClear">
+            <div class="btContentHolder">
+                <div class="btContent">
+                    <section id="firstSection" data-parallax="0.1" data-parallax-offset="0" class="boldSection topExtraSpaced bottomLargeSpaced gutter fullScreenHeight btTopVertical btParallax wBackground cover" style="background-color: rgb(255, 255, 255); background-image: url(@routes.Assets.versioned("images/OneDayVr-BannerCut.png")); background-position: 50% 0px;">
+                        <div class="port">
+                            <div class="boldCell">
+                                <div class="boldCellInner">
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem col-md-12 col-ms-12  btTextLeft animate animate-fadein animate-moveleft inherit animated" data-width="12">
+                                                <div class="rowItemContent">
+                                                    <div class="btClear btSeparator topExtraSpaced noBorder">
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="bt_section5a2e7255940e0" class="boldSection topSpaced bottomSpaced gutter inherit">
+                        <div class="port">
+                            <div class="boldCell">
+                                <div class="boldCellInner">
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem col-md-3 col-sm-6 col-ms-12 btTextLeft" data-width="3">
+                                                <div class="rowItemContent"></div>
+                                            </div>
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft inherit" data-width="6">
+                                                <div class="rowItemContent">
+                                                    <div class="bpgPhoto ">
+                                                        <div class="btImage">
+                                                            <img src="@routes.Assets.versioned("images/datum.png")" alt="22.-23. Februar">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-3 col-sm-6 col-ms-12 btTextLeft" data-width="3">
+                                                <div class="rowItemContent"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="info" class="boldSection btDivider topLargeSpaced bottomSmallSpaced btLightSkin gutter inherit" style="background-color:#ffffff;">
+                        <div class="port">
+                            <div class="boldCell">
+                                <div class="boldCellInner">
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem btRightBorder col-md-6 col-sm-12 btTextLeft animate animate-fadein inherit btDoublePadding" style="border-right: 0;" data-width="6">
+                                                <div class="rowItemContent">
+                                                    <div class="bpgPhoto ">
+                                                        <div class="btImage"><img src="@routes.Assets.versioned("images/Loop.gif")" alt="Spinning VR Headset">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein inherit infoText" data-width="6">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear medium">
+                                                        <div class="dash">
+                                                            <h3><span class="headline">OneDay_VR
+                                                                <br>Real Virtual Work
+                                                                <br>_</span></h3>
+                                                        </div>
+                                                    </header>
+                                                    <div class="btClear btSeparator topSmallSpaced noBorder">
+                                                        <hr>
+                                                    </div>
+                                                    <header class="header btClear medium">
+                                                        <div class="btSubTitle">OneDay_VR ist eine Virtual Reality Konferenz.
+                                                            <br>Sie zeigt Herausforderungen, Lösungsansätze und allgemein Wissenwertes aus den Bereichen VR und AR. Schon zum dritten Mal veranstalten Studierende der HTWG Konstanz dieses Event und bilden damit eine Plattform für Austausch zu diesen Themen.
+                                                            <br>
+                                                            <br>Unter dem Motto „Real Virtual Work“ rückt dieses Jahr vor allem das Thema „Arbeit und Berufe in der Zukunft“ in den Mittelpunkt. Durch Workshops, Keynotes von geladenen Gästen und Vorträge über die VR-Projekte des vergangenen Semesters wird ein breites Informationsspektrum dargestellt.</div>
+                                                    </header>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="anmeldung" class="boldSection topSemiSpaced bottomSemiSpaced gutter inherit" style="background-color:#ebebeb;">
+                        <div class="port">
+                            <div class="boldCell">
+                                <div class="boldCellInner">
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem col-md-12 col-ms-12  btTextCenter inherit" data-width="12">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear large">
+                                                        <div class="dash">
+                                                            <h2><span class="headline">Anmeldung</span></h2>
+                                                        </div>
+                                                        <div class="btSubTitle">Registrieren Sie sich jetzt f&uuml;r die One Day_VR Konferenz am 22. und 23. Februar 2017.</div>
+                                                    </header>
+                                                    <div class="btText">
+                                                        <form id="registrationForm" name="registrationForm">
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="vorname">Anrede*</label>
+                                                                <input type="text" class="form-control" id="anrede" name="anrede">
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="vorname">Titel</label>
+                                                                <input type="text" class="form-control" id="titel" name="titel">
+                                                            </div>
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="vorname">Vorname*</label>
+                                                                <input type="text" class="form-control" id="vorname" name="vorname">
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="nachname">Nachname*</label>
+                                                                <input type="text" class="form-control" id="nachname" name="nachname">
+                                                            </div>
+                                                            <div class="form-group" style="float: left; margin-bottom: 0.9rem;">
+                                                                <label for="firmenname" style="margin-right: 30px;">Firmenname</label>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="privat" value="privat" checked> Privat
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="firma" value="firma"> Firma
+                                                                    </label>
+                                                                </div>
+                                                                <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname">
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="strasse">Strasse/Nummer*</label>
+                                                                <input type="text" class="form-control" name="strasse" id="strasse">
+                                                            </div>
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="postleitzahl">Postleitzahl*</label>
+                                                                <input type="text" class="form-control" name="postleitzahl" id="postleitzahl">
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="Ort">Ort*</label>
+                                                                <input type="text" class="form-control" name="ort" id="ort">
+                                                            </div>
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="Ort">Telefon*</label>
+                                                                <input type="text" class="form-control" name="telefon" id="telefon">
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="email">E-Mail Addresse*</label>
+                                                                <input type="email" class="form-control" id="email" name="email">
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="programm" class="boldSection bottomExtraSpaced gutter inherit" style="background-color:#6633cc;color: #fff!important;">
+                        <div class="port">
+                            <div class="boldCell">
+                                <div class="boldCellInner">
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner btTableRow">
+                                            <div class="rowItem col-md-12 col-ms-12  btTextCenter btMiddleVertical btDoublePadding textbox" style="margin-top: 53px;" data-width="12">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear medium" style="font-size: 80px; ">
+                                                        <div class="dash">
+                                                            <h3><span class="headline">Programm</span></h3>
+                                                        </div>
+                                                    </header>
+                                                    <div class="btClear btSeparator bottomSemiSpaced noBorder">
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 35%; data-width="6">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
+                                                        <div class="dash">
+                                                            <h3><span class="headline">Vorträge</span></h3>
+                                                        </div>
+                                                    </header>
+                                                    <div class="btText">
+                                                        <p style="font-size: 25px; padding-left: 30px; padding-bottom: 30px;">VR und Arbeit –
+                                                            <br> Wohin entwickelt
+                                                            <br> sich unsere
+                                                            <br> Gesellschaft?
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 55%; float: right;" data-width="6">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
+                                                        <div class="dash">
+                                                            <h3><span class="headline">Workshops</span></h3>
+                                                        </div>
+                                                    </header>
+                                                    <div class="btText">
+                                                        <p style="font-size: 25px; padding-left: 30px; padding-bottom: 30px;">VR-Entwicklung,
+                                                            <br> UX-Design,
+                                                            <br> Open Innovation als Methode,
+                                                            <br> Design Thinking
+                                                            <br> und mehr…</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 55%;" data-width="6">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
+                                                        <div class="dash">
+                                                            <h3><span class="headline">Präsentation</span></h3>
+                                                        </div>
+                                                    </header>
+                                                    <div class="btText">
+                                                        <p style="font-size: 25px; padding-left: 30px; padding-bottom: 30px;">Das Neuste aus
+                                                            <br> den Bereichen VR und
+                                                            <br> AR von den Studierenden
+                                                            <br> der HTWG Konstanz</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style=" width: 40%; float: right;" data-width="6">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear medium" style="font-size: 60px; line-height: normal; ">
+                                                        <div class="dash">
+                                                            <h3><span class="headline">Ausstellung</span></h3>
+                                                        </div>
+                                                    </header>
+                                                    <div class="btText">
+                                                        <p style="font-size: 25px; padding-left: 40px; padding-bottom: 30px;">Hautnahes Erleben
+                                                            <br> der vorgeführten
+                                                            <br> Projekte
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 40%;" data-width="6">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
+                                                        <div class="dash">
+                                                            <h3><span class="headline">Hackathon</span></h3>
+                                                        </div>
+                                                    </header>
+                                                    <div class="btText">
+                                                        <p style="font-size: 25px; padding-left: 30px; padding-bottom: 30px;">4 Tage im Tunnel:
+                                                            <br> Studierende entwickeln
+                                                            <br> die Vorlesung
+                                                            <br> von Morgen</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 55%; float: right; data-width="6">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
+                                                        <div class="dash">
+                                                            <h3><span class="headline">Preisverleihung</span></h3>
+                                                        </div>
+                                                    </header>
+                                                    <div class="btText">
+                                                        <p style="font-size: 25px; padding-left: 40px; padding-bottom: 30px;">Der erste
+                                                            <br> VR/UX/-Designpreis
+                                                            <br> für Deutschland,
+                                                            <br> Österreich und
+                                                            <br> die Schweiz</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="anfahrt" class="boldSection inherit" style="background-color:#f0f0f0;">
+                        <div class="port">
+                            <div class="boldCell">
+                                <div class="boldCellInner">
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem col-md-9 col-ms-12  btTextLeft inherit" style="width: 70%; margin-right: 70px;" data-width="9">
+                                                <div class="rowItemContent">
+                                                    <div class="bpgPhoto ">
+                                                        <div class="btImage"><img src="@routes.Assets.versioned("images/onedayvr_karte.png")" alt="OneDay VR Karte">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-3 col-sm-6 col-ms-12 btTextCenter inherit" style="padding-top: 10%;" data-width="3">
+                                                <div class="rowItemContent">
+                                                    <header class="header btClear medium" style="margin-bottom: 20px;">
+                                                        <div class="dash">
+                                                            <h3><span class="headline">Anfahrt</span></h3>
+                                                        </div>
+                                                    </header>
+                                                    <div class="btText">
+                                                        <p style="text-align: center;">Gebäude P
+                                                            <br> Wintersteig
+                                                        </p>
+                                                        <p style="text-align: center;">_</p>
+                                                        <p style="text-align: center;">HTWG Konstanz</p>
+                                                        <p style="text-align: center;">Alfred-Wachtel-Straße 8</p>
+                                                        <p style="text-align: center; margin-bottom: 40px;">78462 Konstanz</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="bt_section5a2e7255af0cf" class="boldSection topSemiSpaced bottomSmallSpaced gutter inherit" style="background-color:#ffffff;">
+                        <div class="port">
+                            <div class="boldCell">
+                                <div class="boldCellInner">
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem col-md-12 col-ms-12  btTextCenter inherit" data-width="12">
+                                                <div class="rowItemContent">
+                                                    <div class="btClear btSeparator topSmallSpaced bottomSmallSpaced noBorder">
+                                                        <hr>
+                                                    </div>
+                                                    <div class="btIconImageRow"><span class="btIco btIcoDefaultType btIcoMediumSize btIcoDefaultColor" style="padding-left: 14.75px; padding-right: 14.75px; border: 2px solid black; border-radius: 100%;">
+                                                        <a href="https://www.facebook.com/events/128548647637198/" target="_blank" data-ico-fa="" class="btIcoHolder"></a>
+                                                    </span>
+                                                        <span class="btIco btIcoDefaultType btIcoMediumSize btIcoDefaultColor" style="padding-left: 12px; padding-right: 10px; border: 2px solid black; border-radius: 100%;">
+                                                            <a href="https://www.instagram.com/oneday_vr" target="_blank" data-ico-fa="" class="btIcoHolder"></a></span>
+                                                    </div>
+                                                    <div class="btClear btSeparator topSmallSpaced bottomSmallSpaced noBorder">
+                                                        <hr>
+                                                    </div>
+                                                    <div class="btText">
+                                                        <p><span style="color: #000000; text-transform: uppercase; font-weight: 300; letter-spacing: 1.4px;">Wir freuen uns auf Ihr kommen!</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="footer" class="boldSection btDivider topSemiSpaced bottomSemiSpaced gutter btTopVertical" style="background-color:#fde825;">
+                        <div class="port">
+                            <div class="boldCell">
+                                <div class="boldCellInner">
+                                    <div class="boldRow ">
+                                        <div class="boldRowInner">
+                                            <div class="rowItem col-md-12 col-ms-12  btTextCenter inherit" data-width="12">
+                                                <div class="rowItemContent">
+                                                    <div class="bpgPhoto footerHTWG" style="width: 5%;">
+                                                        <div class="btImage"><img src="@routes.Assets.versioned("images/htwg-logo.png")" alt="HTWG Logo">
+                                                        </div>
+                                                    </div>
+                                                    <div class="bpgPhoto footerLogo" style="width: 30%; position: relative; bottom: 10px; margin-left: 42px;">
+                                                        <div class="btImage"><img src="@routes.Assets.versioned("images/onedayvr-logo.png")" alt="OneDay VR Logo">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                    <!-- /boldthemes_content -->
+
+            </div>
+                <!-- /contentHolder -->
+        </div>
+            <!-- /contentWrap -->
+
+        <footer class="btDarkSkin">
+        </footer>
+
+    </div>
+    <!-- /pageWrap -->
+
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/comment-reply.min.js")"></script>
+    <script type="text/javascript">
+            /* <![CDATA[ */
+            var wpcf7 = {
+                "apiSettings": {
+                    "root": "http:\/\/designinkonstanz.de\/index.php?rest_route=\/contact-form-7\/v1",
+                    "namespace": "contact-form-7\/v1"
+                },
+                "recaptcha": {
+                    "messages": {
+                        "empty": "Bitte best\u00e4tige, dass du keine Maschine bist."
+                    }
+                }
+            };
+            /* ]]> */
+    </script>
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/scripts.js")"></script>
+    <script type="text/javascript">
+            /* <![CDATA[ */
+            var newsletter = {
+                "messages": {
+                    "email_error": "Die E-Mail ist nicht korrekt.",
+                    "name_error": "Der Name ist nicht korrekt.",
+                    "surname_error": "The last name is not correct",
+                    "profile_error": "",
+                    "privacy_error": "You must accept the privacy statement"
+                },
+                "profile_max": "20"
+            };
+            /* ]]> */
+    </script>
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/validate.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/wp-embed.min.js")"></script>
+    <script type="text/javascript" src="@routes.Assets.versioned("javascripts/bt_parallax.js")"></script>
+    <script>
+            window.viewportUnitsBuggyfill.init({
+
+                // milliseconds to delay between updates of viewport-units
+                // caused by orientationchange, pageshow, resize events
+                refreshDebounceWait: 250,
+
+                // provide hacks plugin to make the contentHack property work correctly.
+                hacks: window.viewportUnitsBuggyfillHacks
+
+            });
+    </script>
 }
