@@ -193,13 +193,13 @@ select {
     outline: none;
     font: inherit;
     width: 100%;
-    background: transparent;
+    /*background: transparent; */
     line-height: 1;
     }
 input:not([type='checkbox']):not([type='radio']),
 select {
     padding: 10px;
-    background: transparent;
+    /* background: transparent; */
     line-height: inherit;
     width: 100%;
     display: block;

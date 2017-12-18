@@ -29,13 +29,13 @@
                     <div class="menuPort" style="visibility: visible;">
                         <nav>
                             <ul id="menu-primary-menu" class="menu">
-                                <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="http://designinkonstanz.de/#info">Info</a>
+                                <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="#info">Info</a>
                                 </li>
-                                <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="http://designinkonstanz.de/#anmeldung">Anmeldung</a>
+                                <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="#anmeldung">Anmeldung</a>
                                 </li>
-                                <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="http://designinkonstanz.de/#programm">Programm</a>
+                                <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="#programm">Programm</a>
                                 </li>
-                                <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="http://designinkonstanz.de/#anfahrt">Anfahrt</a>
+                                <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="#anfahrt">Anfahrt</a>
                                 </li>
                             </ul>
                         </nav>
@@ -152,51 +152,55 @@
                                                     </header>
                                                     <div class="btText">
                                                         <form id="registrationForm" name="registrationForm">
-                                                            <div class="form-group">
-                                                                <label for="vorname">Vorname</label>
-                                                                <input type="text" class="form-control" id="vorname" name="vorname" placeholder="Vorname">
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="vorname">Anrede*</label>
+                                                                <input type="text" class="form-control" id="anrede" name="anrede">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="nachname">Nachname</label>
-                                                                <input type="text" class="form-control" id="nachname" name="nachname" placeholder="Nachname">
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="vorname">Titel</label>
+                                                                <input type="text" class="form-control" id="titel" name="titel">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="email">E-Mail Addresse</label>
-                                                                <input type="email" class="form-control" id="email" name="email" placeholder="abcATxyz.de">
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="vorname">Vorname*</label>
+                                                                <input type="text" class="form-control" id="vorname" name="vorname">
                                                             </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <label class="form-check-label">
-                                                                    <input class="form-check-input" type="radio" name="firmaOptions" id="firma" value="firma"> Firma
-                                                                </label>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="nachname">Nachname*</label>
+                                                                <input type="text" class="form-control" id="nachname" name="nachname">
                                                             </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <label class="form-check-label">
-                                                                    <input class="form-check-input" type="radio" name="firmaOptions" id="privat" value="privat"> Privat
-                                                                </label>
+                                                            <div class="form-group" style="float: left; margin-bottom: 0.9rem;">
+                                                                <label for="firmenname" style="margin-right: 30px;">Firmenname</label>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="privat" value="privat" checked> Privat
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="firma" value="firma"> Firma
+                                                                    </label>
+                                                                </div>
+                                                                <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="firmenname">Firmenname</label>
-                                                                <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname" placeholder="Firmenname">
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="strasse">Strasse/Nummer*</label>
+                                                                <input type="text" class="form-control" name="strasse" id="strasse">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="strasse">Strasse</label>
-                                                                <input type="text" class="form-control" name="strasse" id="strasse" placeholder="Strasse">
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="postleitzahl">Postleitzahl*</label>
+                                                                <input type="text" class="form-control" name="postleitzahl" id="postleitzahl">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="hausnummer">Hausnummer</label>
-                                                                <input type="text" class="form-control" name="hausnummer" id="hausnummer" placeholder="Hausnummer">
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="Ort">Ort*</label>
+                                                                <input type="text" class="form-control" name="ort" id="ort">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="postleitzahl">Postleitzahl</label>
-                                                                <input type="text" class="form-control" name="postleitzahl" id="postleitzahl" placeholder="12345">
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="Ort">Telefon*</label>
+                                                                <input type="text" class="form-control" name="telefon" id="telefon">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="Ort">Ort</label>
-                                                                <input type="text" class="form-control" name="ort" id="ort" placeholder="Ort">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="land">Land</label>
-                                                                <input type="text" class="form-control" name="land" id="land" placeholder="Land">
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="email">E-Mail Addresse*</label>
+                                                                <input type="email" class="form-control" id="email" name="email">
                                                             </div>
                                                         </form>
                                                     </div>
@@ -214,7 +218,7 @@
                                 <div class="boldCellInner">
                                     <div class="boldRow ">
                                         <div class="boldRowInner btTableRow">
-                                            <div class="rowItem col-md-12 col-ms-12  btTextCenter btMiddleVertical btDoublePadding" data-width="12">
+                                            <div class="rowItem col-md-12 col-ms-12  btTextCenter btMiddleVertical btDoublePadding textbox" style="margin-top: 53px;" data-width="12">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 80px; ">
                                                         <div class="dash">
@@ -230,7 +234,7 @@
                                     </div>
                                     <div class="boldRow ">
                                         <div class="boldRowInner">
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="width: 35%; position: relative; top: -20px;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 35%; data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
@@ -246,7 +250,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 30px; width: 55%; float: right;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 55%; float: right;" data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
@@ -266,7 +270,7 @@
                                     </div>
                                     <div class="boldRow ">
                                         <div class="boldRowInner">
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 70px; width: 55%;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 55%;" data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
@@ -281,7 +285,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 150px; width: 40%; float: right;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style=" width: 40%; float: right;" data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal; ">
                                                         <div class="dash">
@@ -300,7 +304,7 @@
                                     </div>
                                     <div class="boldRow ">
                                         <div class="boldRowInner">
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 130px; width: 40%;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 40%;" data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
@@ -315,7 +319,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 180px; width: 55%; float: right; margin-bottom: 100px;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 55%; float: right; data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
