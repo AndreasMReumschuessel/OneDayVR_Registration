@@ -10,9 +10,12 @@ CREATE TABLE firma (
 
 CREATE TABLE teilnehmer (
   tnummer INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  anrede VARCHAR(5) NOT NULL,
+  titel VARCHAR(10),
   nachname VARCHAR(50) NOT NULL,
   vorname VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL,
+  telefon VARCHAR(50) NOT NULL,
   fnummer INT(6) UNSIGNED,
   FOREIGN KEY (fnummer) REFERENCES firma(fnummer)
 ) ENGINE=INNODB;

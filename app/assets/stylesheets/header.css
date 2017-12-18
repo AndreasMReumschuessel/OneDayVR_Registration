@@ -1,0 +1,3 @@
+.btBelowMenu:not(.btStickyHeaderActive) .mainHeader {
+    background-color: transparent;
+}
