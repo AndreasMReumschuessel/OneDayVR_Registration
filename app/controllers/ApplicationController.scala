@@ -52,11 +52,14 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
       val strasse = getJsonString((json \ "strasse").get.toString())
       state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
 
-      val hausnummer = getJsonString((json \ "hausnummer").get.toString())
-      state.addDataEntry(hausnummer, "^[0-9A-z]+")
-
       val plz = getJsonString((json \ "postleitzahl").get.toString())
       state.addDataEntry(plz, "^[0-9]+")
+
+      val titel = getJsonString((json \ "titel").get.toString())
+      state.addDataEntry(titel, "(Dr.|Prof.)")
+
+      val anrede = getJsonString((json \ "anrede").get.toString())
+      state.addDataEntry(anrede, "Frau|Herr|Keine Angabe")
 
       val ort = getJsonString((json \ "ort").get.toString())
       state.addDataEntry(ort, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
@@ -64,9 +67,9 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
       val land = getJsonString((json \ "land").get.toString())
       state.addDataEntry(land, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-]{2,}")
 
-      val fnummer:Int = insertFirma(Firma(firmenname, DEFAULT_FIRMENID, strasse, hausnummer, plz, ort,land))
+      val fnummer:Int = insertFirma(Firma(firmenname, DEFAULT_FIRMENID, strasse, plz, ort,land))
       try{
-        insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer))
+        insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer, titel, anrede))
       } catch{
         case ex: Exception => FAILED_DEPENDENCY
       }
