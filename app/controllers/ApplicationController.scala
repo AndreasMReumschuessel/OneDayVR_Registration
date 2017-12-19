@@ -17,7 +17,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
   val DEFAULT_FIRMENID = 0
 
   def index=Action{
-    //db.createSession()
+    db.createSession()
     Ok(views.html.index("Hallo"))
   }
 
@@ -31,48 +31,50 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
     if(json == null){
       state.setNull()
     }else{
-      val vorname = getJsonString((json \ "vorname").get.toString())
-      state.addDataEntry(vorname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
-
-      val nachname = getJsonString((json \ "nachname").get.toString())
-      state.addDataEntry(vorname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
+      val anrede = getJsonString((json \ "anrede").get.toString())
+      state.addDataEntry(anrede, "Frau|Herr")
 
       val email = getJsonString((json \ "email").get.toString())
       state.addDataEntry(email, "(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")
 
-      //val firmaOptions = (json \ "firmaOptions").get
       var firmenname:String = "privat"
 
       try{
-        firmenname = getJsonString((json \ "firmenname").get.toString())
+        firmenname = getJsonString((json \ "firmaOptions").get.toString())
         state.addDataEntry(firmenname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
       }catch{
         case ex: NoSuchElementException => println("[info] use privat teilnehmer")
       }
-      val strasse = getJsonString((json \ "strasse").get.toString())
-      state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
 
-      val plz = getJsonString((json \ "postleitzahl").get.toString())
-      state.addDataEntry(plz, "^[0-9]+")
-
-      val titel = getJsonString((json \ "titel").get.toString())
-      state.addDataEntry(titel, "(Dr.|Prof.)")
-
-      val anrede = getJsonString((json \ "anrede").get.toString())
-      state.addDataEntry(anrede, "Frau|Herr|Keine Angabe")
+      val nachname = getJsonString((json \ "nachname").get.toString())
+      state.addDataEntry(nachname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
 
       val ort = getJsonString((json \ "ort").get.toString())
       state.addDataEntry(ort, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
 
-      val land = getJsonString((json \ "land").get.toString())
-      state.addDataEntry(land, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-]{2,}")
+      val plz = getJsonString((json \ "postleitzahl").get.toString())
+      state.addDataEntry(plz, "^[0-9]+")
 
-      val fnummer:Int = insertFirma(Firma(firmenname, DEFAULT_FIRMENID, strasse, plz, ort,land))
+      val strasse = getJsonString((json \ "strasse").get.toString())
+      state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
+
+      val telefon = getJsonString((json \ "telefon").get.toString())
+      state.addDataEntry(telefon, "[0-9]*")
+
+      val titel = getJsonString((json \ "titel").get.toString())
+      state.addDataEntry(titel, "(Dr.|Prof.)")
+
+      val vorname = getJsonString((json \ "vorname").get.toString())
+      state.addDataEntry(vorname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
+
+      val fnummer:Int = insertFirma(Firma(firmenname, DEFAULT_FIRMENID, strasse, plz, ort))
       try{
-        insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer, titel, anrede))
+        insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer, titel, anrede, telefon))
       } catch{
         case ex: Exception => FAILED_DEPENDENCY
       }
+
+      Ok
     }
 
     while(state.hasNext()){

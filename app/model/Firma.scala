@@ -7,8 +7,7 @@ final case class Firma(
                              fnummer: Int,
                              strasse: String,
                              plz: String,
-                             ort: String,
-                             land: String
+                             ort: String
                            )
 final class FirmaTable(tag: Tag) extends Table[Firma](tag, "firma"){
 
@@ -17,7 +16,6 @@ final class FirmaTable(tag: Tag) extends Table[Firma](tag, "firma"){
   def strasse    = column[String]("strasse")
   def plz        = column[String]("plz")
   def ort        = column[String]("ort")
-  def land       = column[String]("land")
 
-  def * = (firmenname, fnummer, strasse, plz, ort, land).mapTo[Firma]
+  def * = (firmenname, fnummer, strasse, plz, ort).mapTo[Firma]
 }
