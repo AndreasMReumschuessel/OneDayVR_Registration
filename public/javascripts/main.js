@@ -27,17 +27,13 @@ function submitForm() {
     });
 }
 
-function failSubmit(){
-    let p = jQuery('#registrierung');
-    p.modal('toggle');
-    p.after("<div class='alert alert-danger alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a> <strong>Registrierung nicht erfolgreich!</strong> Es sind keine Plätze mehr frei.</div>")
+
+function failSubmit() {
+    jQuery('#failure').modal()
 }
 
 function successfullySubmitted(){
-    let p = jQuery('#registrierung');
-    p.modal('toggle');
-    p.after("<div class='alert alert-success alert-dismissable'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a> <strong>Resgistrierung erfolgreich!</strong> Wir freuen uns auf Ihr kommen. </div>")
-
+    jQuery('#success').modal()
 }
 function objectifyForm(formArray) {//serialize data function
 
