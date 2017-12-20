@@ -2,7 +2,6 @@ CREATE TABLE firma (
   fnummer INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
   firmenname VARCHAR(50),
   strasse VARCHAR(30) NOT NULL,
-  hausnummer VARCHAR(5) NOT NULL,
   plz VARCHAR(5) NOT NULL,
   ort VARCHAR(30) NOT NULL,
   land VARCHAR(30)
