@@ -1,4 +1,4 @@
-name := """play-scala-starter-example"""
+name := """Oneday VR Registration Page"""
 
 version := "1.0-SNAPSHOT"
 

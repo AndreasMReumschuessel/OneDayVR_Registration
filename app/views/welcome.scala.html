@@ -29,13 +29,13 @@
                     <div class="menuPort" style="visibility: visible;">
                         <nav>
                             <ul id="menu-primary-menu" class="menu">
-                                <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="http://designinkonstanz.de/#info">Info</a>
+                                <li id="menu-item-10" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-10"><a href="#info">Info</a>
                                 </li>
-                                <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="http://designinkonstanz.de/#anmeldung">Anmeldung</a>
+                                <li id="menu-item-11" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-11"><a href="#anmeldung">Anmeldung</a>
                                 </li>
-                                <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="http://designinkonstanz.de/#programm">Programm</a>
+                                <li id="menu-item-12" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12"><a href="#programm">Programm</a>
                                 </li>
-                                <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="http://designinkonstanz.de/#anfahrt">Anfahrt</a>
+                                <li id="menu-item-13" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13"><a href="#anfahrt">Anfahrt</a>
                                 </li>
                             </ul>
                         </nav>
@@ -148,22 +148,79 @@
                                                         <div class="dash">
                                                             <h2><span class="headline">Anmeldung</span></h2>
                                                         </div>
-                                                        <div class="btSubTitle">Jetzt zum Newsletter anmelden und vor allen anderen Tickets abstauben!</div>
+                                                        <div class="btSubTitle">Registrieren Sie sich jetzt f&uuml;r die One Day_VR Konferenz am 22. und 23. Februar 2017.</div>
                                                     </header>
                                                     <div class="btText">
-                                                        <div class="tnp tnp-subscription">
-                                                            <form action="http://designinkonstanz.de/?na=s" method="post">
-                                                                <div class="tnp-field tnp-field-firstname" style="width: 50%; margin-bottom: 30px;">
-                                                                    <input class="tnp-firstname" name="nn" required="" type="text" placeholder="Name">
+                                                        <form id="registrationForm" name="registrationForm" onsubmit="return validate()">
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="anrede">Anrede*</label>
+                                                                <select class="form-control" id="anrede" name="anrede">
+                                                                    <option value="Frau">Frau</option>
+                                                                    <option value="Herr">Herr</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="titel">Titel</label>
+                                                                <select class="form-control" id="titel" name="titel">
+                                                                    <option value=""></option>
+                                                                    <option value="Professor">Prof.</option>
+                                                                    <option value="Dr.">Dr.</option>
+                                                                    <option value="Professor Dr.">Prof. Dr.</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="vorname">Vorname*</label>
+                                                                <input type="text" class="form-control" id="vorname" name="vorname">
+                                                                <p id="vornameError"></p>
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="nachname">Nachname*</label>
+                                                                <input type="text" class="form-control" id="nachname" name="nachname">
+                                                                <p id="nachnameError"></p>
+                                                            </div>
+                                                            <div class="form-group" style="float: left; margin-bottom: 0.9rem;">
+                                                                <label for="firmenname" style="margin-right: 30px;">Firmenname</label>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="privat" value="privat" checked> Privat
+                                                                    </label>
                                                                 </div>
-                                                                <div class="tnp-field tnp-field-email" style="display: inline-block; float: left; width: 50%;">
-                                                                    <input class="tnp-email" name="ne" required="" type="email" placeholder="E-Mail Adresse">
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="firma" value="firma"> Firma
+                                                                    </label>
                                                                 </div>
-                                                                <div class="tnp-field tnp-field-button" style="float: right; position: relative; left: 30px;">
-                                                                    <input class="tnp-submit" type="submit" value="Newsletter abonnieren">
-                                                                </div>
-                                                            </form>
-                                                        </div>
+                                                                <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname">
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="strasse">Strasse/Nummer*</label>
+                                                                <input type="text" class="form-control" name="strasse" id="strasse">
+                                                                <p id="streetError"></p>
+                                                            </div>
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="postleitzahl">Postleitzahl*</label>
+                                                                <input type="text" class="form-control" name="postleitzahl" id="postleitzahl">
+                                                                <p id="postleitzahlError"></p>
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="ort">Ort*</label>
+                                                                <input type="text" class="form-control" name="ort" id="ort">
+                                                                <p id="ortError"></p>
+                                                            </div>
+                                                            <div class="form-group" style="float: left;">
+                                                                <label for="telefon">Telefon*</label>
+                                                                <input type="text" class="form-control" name="telefon" id="telefon">
+                                                                <p id="telefonError"></p>
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
+                                                                <label for="email">E-Mail Addresse*</label>
+                                                                <input type="email" class="form-control" id="email" name="email">
+                                                                <p id="emailError"></p>
+                                                            </div>
+                                                            <div class="form-group submitDiv">
+                                                                <button onclick="submitForm();" type="button" class="btn btn-primary submitButton">Senden</button>
+                                                            </div>
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>
@@ -179,7 +236,7 @@
                                 <div class="boldCellInner">
                                     <div class="boldRow ">
                                         <div class="boldRowInner btTableRow">
-                                            <div class="rowItem col-md-12 col-ms-12  btTextCenter btMiddleVertical btDoublePadding" data-width="12">
+                                            <div class="rowItem col-md-12 col-ms-12  btTextCenter btMiddleVertical btDoublePadding textbox" style="margin-top: 53px;" data-width="12">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 80px; ">
                                                         <div class="dash">
@@ -195,7 +252,7 @@
                                     </div>
                                     <div class="boldRow ">
                                         <div class="boldRowInner">
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="width: 35%; position: relative; top: -20px;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 35%; data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
@@ -211,7 +268,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 30px; width: 55%; float: right;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 55%; float: right;" data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
@@ -231,7 +288,7 @@
                                     </div>
                                     <div class="boldRow ">
                                         <div class="boldRowInner">
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 70px; width: 55%;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 55%;" data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
@@ -246,7 +303,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 150px; width: 40%; float: right;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style=" width: 40%; float: right;" data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal; ">
                                                         <div class="dash">
@@ -265,7 +322,7 @@
                                     </div>
                                     <div class="boldRow ">
                                         <div class="boldRowInner">
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 130px; width: 40%;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 40%;" data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
@@ -280,7 +337,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding" style="position: relative; top: 180px; width: 55%; float: right; margin-bottom: 100px;" data-width="6">
+                                            <div class="rowItem col-md-6 col-sm-12 btTextLeft animate animate-fadein animate-moveup btHighlight inherit btDoublePadding textbox" style="width: 55%; float: right; data-width="6">
                                                 <div class="rowItemContent">
                                                     <header class="header btClear medium" style="font-size: 60px; line-height: normal;">
                                                         <div class="dash">
@@ -403,7 +460,42 @@
                 <!-- /contentHolder -->
         </div>
             <!-- /contentWrap -->
-
+    <div class="modal fade" id="success">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Vielen Dank!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Die Anmeldung war erfolgreich. Wir freuen uns auf ihren Besuch.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="failure">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Fehler</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Es ist ein Fehler aufgetreten. Eventuell sind keine Plätze mehr frei oder versuchen sie es später noch einmal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
         <footer class="btDarkSkin">
         </footer>
 
@@ -411,36 +503,7 @@
     <!-- /pageWrap -->
 
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/comment-reply.min.js")"></script>
-    <script type="text/javascript">
-            /* <![CDATA[ */
-            var wpcf7 = {
-                "apiSettings": {
-                    "root": "http:\/\/designinkonstanz.de\/index.php?rest_route=\/contact-form-7\/v1",
-                    "namespace": "contact-form-7\/v1"
-                },
-                "recaptcha": {
-                    "messages": {
-                        "empty": "Bitte best\u00e4tige, dass du keine Maschine bist."
-                    }
-                }
-            };
-            /* ]]> */
-    </script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/scripts.js")"></script>
-    <script type="text/javascript">
-            /* <![CDATA[ */
-            var newsletter = {
-                "messages": {
-                    "email_error": "Die E-Mail ist nicht korrekt.",
-                    "name_error": "Der Name ist nicht korrekt.",
-                    "surname_error": "The last name is not correct",
-                    "profile_error": "",
-                    "privacy_error": "You must accept the privacy statement"
-                },
-                "profile_max": "20"
-            };
-            /* ]]> */
-    </script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/validate.js")"></script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/wp-embed.min.js")"></script>
     <script type="text/javascript" src="@routes.Assets.versioned("javascripts/bt_parallax.js")"></script>
