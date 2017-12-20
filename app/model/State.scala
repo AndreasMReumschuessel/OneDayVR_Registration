@@ -20,6 +20,7 @@ case class State(){
     }
     if(!data(state)._1.matches(data(state)._2)){
       statuscode = FAIL
+      println("DEBUG: data(state)._1.matches(data(state)._2) " + data(state)._1 + "\nRegex: " + data(state)._2)
     }
     state += 1
   }

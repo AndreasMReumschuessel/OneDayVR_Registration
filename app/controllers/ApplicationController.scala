@@ -56,10 +56,10 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
       state.addDataEntry(plz, "^[0-9]+")
 
       val strasse = getJsonString((json \ "strasse").get.toString())
-      state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
+      state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|ß|\\s|\\-\\.]{2,}")
 
       val telefon = getJsonString((json \ "telefon").get.toString())
-      state.addDataEntry(telefon, "[0-9]*")
+      state.addDataEntry(telefon, "^+{0,1}[0-9]*")
 
       val titel = getJsonString((json \ "titel").get.toString())
       state.addDataEntry(titel, "(Dr.|Prof.)")
