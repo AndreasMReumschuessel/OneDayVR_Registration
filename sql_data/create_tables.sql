@@ -5,7 +5,7 @@ CREATE TABLE firma (
   hausnummer VARCHAR(5) NOT NULL,
   plz VARCHAR(5) NOT NULL,
   ort VARCHAR(30) NOT NULL,
-  land VARCHAR(30) NOT NULL
+  land VARCHAR(30)
 ) ENGINE=INNODB;
 
 CREATE TABLE teilnehmer (
