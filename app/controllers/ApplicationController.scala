@@ -56,29 +56,32 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
       state.addDataEntry(plz, "^[0-9]+")
 
       val strasse = getJsonString((json \ "strasse").get.toString())
-      state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|ß|\\s|\\-\\.]{2,}")
+      state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|ß|\\s|\\-\\.|0-9]{2,}")
 
       val telefon = getJsonString((json \ "telefon").get.toString())
-      state.addDataEntry(telefon, "^+{0,1}[0-9]*")
+      state.addDataEntry(telefon, "^\\+{0,1}[0-9]*")
 
       val titel = getJsonString((json \ "titel").get.toString())
-      state.addDataEntry(titel, "(Dr.|Prof.)")
+      state.addDataEntry(titel, "(Professor|Dr.|Professor Dr.){0,1}")
 
       val vorname = getJsonString((json \ "vorname").get.toString())
       state.addDataEntry(vorname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
 
-      val fnummer:Int = insertFirma(Firma(firmenname, DEFAULT_FIRMENID, strasse, plz, ort))
-      try{
-        insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer, titel, anrede, telefon))
-      } catch{
-        case ex: Exception => FAILED_DEPENDENCY
+      //validate data
+      while(state.hasNext()){
+        state.validate()
       }
 
-      Ok
-    }
-
-    while(state.hasNext()){
-      state.validate()
+      //if data is invalid then reject it
+      if(state.statuscode == state.OK)
+      {
+        val fnummer:Int = insertFirma(Firma(firmenname, DEFAULT_FIRMENID, strasse, plz, ort))
+        try{
+          insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer, titel, anrede, telefon))
+        } catch{
+          case ex: Exception => FAILED_DEPENDENCY
+        }
+      }
     }
     new Status(state.statuscode)
   }
