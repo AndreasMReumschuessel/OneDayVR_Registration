@@ -12,6 +12,11 @@ jQuery( document ).ready(function() {
     });
     jQuery('#anrede').fancySelect();
     jQuery('#titel').fancySelect();
+    jQuery("#registrationForm").submit(function(e){
+        e.preventDefault();
+        if(validate())
+            submitForm();
+    });
 });
 
 function submitForm() {
@@ -47,13 +52,15 @@ function objectifyForm(formArray) {//serialize data function
 
 
 function validate() {
-    validateEmail(document.getElementById("email"));
-    validatePhone(document.getElementById("telefon"));
-    validateName(document.getElementById("vorname"), "vornameError");
-    validateName(document.getElementById("nachname"), "nachnameError");
-    validateEmpty(document.getElementById("strasse"), "streetError");
-    validateEmpty(document.getElementById("postleitzahl"), "postleitzahlError");
-    validateEmpty(document.getElementById("ort"), "ortError");
+    return(
+        validateEmail(document.getElementById("email")) &&
+        validatePhone(document.getElementById("telefon")) &&
+        validateName(document.getElementById("vorname"), "vornameError") &&
+        validateName(document.getElementById("nachname"), "nachnameError") &&
+        validateEmpty(document.getElementById("strasse"), "streetError") &&
+        validatePlz(document.getElementById("postleitzahl"), "postleitzahlError") &&
+        validateEmpty(document.getElementById("ort"), "ortError")
+    )
 }
 
 function validateEmail(mail)
@@ -103,6 +110,19 @@ function validateEmpty(string, error)
     }
 
     txt = "Bitte geben sie einen gültigen Wert an.";
+    document.getElementById(error).innerHTML = txt;
+    string.style.borderColor = "red";
+    return (false)
+}
+function validatePlz(string, error)
+{
+    var txt = "";
+    if (string.value != "" && string.value.length < 10)
+    {
+        return (true);
+    }
+
+    txt = "Bitte geben sie eine gültige Postleitzahl an.";
     document.getElementById(error).innerHTML = txt;
     string.style.borderColor = "red";
     return (false)
