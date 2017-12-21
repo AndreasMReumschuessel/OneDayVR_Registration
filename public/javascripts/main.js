@@ -14,7 +14,7 @@ jQuery( document ).ready(function() {
     jQuery('#titel').fancySelect();
     jQuery("#registrationForm").submit(function(e){
         e.preventDefault();
-        if(validate())
+        if(!validate())
             submitForm();
     });
 });
@@ -52,14 +52,15 @@ function objectifyForm(formArray) {//serialize data function
 
 
 function validate() {
-    return(
-        validateEmail(document.getElementById("email")) &&
-        validatePhone(document.getElementById("telefon")) &&
-        validateName(document.getElementById("vorname"), "vornameError") &&
-        validateName(document.getElementById("nachname"), "nachnameError") &&
-        validateEmpty(document.getElementById("strasse"), "streetError") &&
-        validatePlz(document.getElementById("postleitzahl"), "postleitzahlError") &&
+    return(!(
+        validateEmail(document.getElementById("email")) ||
+        validatePhone(document.getElementById("telefon")) ||
+        validateName(document.getElementById("vorname"), "vornameError") ||
+        validateName(document.getElementById("nachname"), "nachnameError") ||
+        validateEmpty(document.getElementById("strasse"), "streetError") ||
+        validatePlz(document.getElementById("postleitzahl"), "postleitzahlError") ||
         validateEmpty(document.getElementById("ort"), "ortError")
+        )
     )
 }
 
