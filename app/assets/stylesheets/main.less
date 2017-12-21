@@ -135,23 +135,23 @@ a.btIcoHolder::before {
 .mainHeader li {
   display: inline-block!important;
 }
-
+@media (max-width: 1440px) {
+  .port {
+    width: 1150px;
+  }
+  #firstSection {
+    background-position-y: 90px!important;
+  }
+}
 @media (max-width: 480px) {
   #firstSection {
     height: 100vw;
-    position: relative;
-    top: 60px;
+    background-position-y: 90px!important;
   }
-  .tnp-field-email {
+  .form-group {
     width: 100%!important;
   }
-  .tnp-field-firstname {
-    width: 100%!important;
-  }
-  .tnp-field-button {
-    float: none!important;
-    left: 0!important;
-  }
+
   #programm .rowItem {
     width: 100%!important;
     top: 0!important;
@@ -168,9 +168,18 @@ a.btIcoHolder::before {
   }
   .btAltLogo {
     position: absolute;
-    right: 0;
     bottom: 20px;
     height: 30px!important;
+    display: block!important;
+  }
+  .anfahrtHeader, .anfahrtText {
+    width: 34%;
+  }
+  .btMainLogo {
+    display: none!important;
+  }
+  #firstSection {
+    background-size: 700px;
   }
 }
 /* Adjusting the menu */
