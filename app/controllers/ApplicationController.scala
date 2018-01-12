@@ -16,7 +16,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
   lazy val firmen = TableQuery[FirmaTable]
   val db = Database.forConfig("onedayvr")
   val DEFAULT_FIRMENID = 0
-  val MAXGUESTS = 21
+  val MAXGUESTS = 250
 
   def index=Action{
     db.createSession()
