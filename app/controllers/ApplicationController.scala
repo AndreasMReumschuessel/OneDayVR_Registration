@@ -6,8 +6,9 @@ import model.{Firma, FirmaTable, Teilnehmer, TeilnehmerTable}
 import play.api.libs.json
 import slick.jdbc.MySQLProfile.api._
 import slick.lifted.TableQuery
-
 import model.State
+
+import scala.concurrent.{Future}
 
 @Singleton
 class ApplicationController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
@@ -15,6 +16,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
   lazy val firmen = TableQuery[FirmaTable]
   val db = Database.forConfig("onedayvr")
   val DEFAULT_FIRMENID = 0
+  val MAXGUESTS = 250
 
   def index=Action{
     db.createSession()
@@ -31,6 +33,8 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
     if(json == null){
       state.setNull()
     }else{
+      if(listAllTeilNehmer() == MAXGUESTS)
+        state.statuscode = state.FAIL
       val anrede = getJsonString((json \ "anrede").get.toString())
       state.addDataEntry(anrede, "Frau|Herr")
 
@@ -86,8 +90,10 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
     new Status(state.statuscode)
   }
 
-  def listAllTeilNehmer():Unit={
-    db.run(teilnehmer.result)
+  def listAllTeilNehmer():Int={
+    val erg: Future[Int] = db.run(teilnehmer.length.result)
+    while(!erg.isCompleted){} //we need to wait till the thread terminates ¯\_(ツ)_/¯
+    erg.value.get.get
   }
 
   def listAllFirma():Unit={
@@ -100,8 +106,9 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
 
   def insertFirma(f: Firma): Int={
     val erg = db.run((firmen returning firmen.map(_.fnummer)) += f)
-    while(!erg.isCompleted){} //¯\_(ツ)_/¯
+    while(!erg.isCompleted){} //we need to wait till the thread terminates ¯\_(ツ)_/¯
     erg.value.get.get
 
   }
+
 }
