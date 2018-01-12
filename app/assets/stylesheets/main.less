@@ -135,53 +135,7 @@ a.btIcoHolder::before {
 .mainHeader li {
   display: inline-block!important;
 }
-@media (max-width: 1440px) {
-  .port {
-    width: 1150px;
-  }
-  #firstSection {
-    background-position-y: 90px!important;
-  }
-}
-@media (max-width: 480px) {
-  #firstSection {
-    height: 100vw;
-    background-position-y: 90px!important;
-  }
-  .form-group {
-    width: 100%!important;
-  }
 
-  #programm .rowItem {
-    width: 100%!important;
-    top: 0!important;
-  }
-  #anfahrt .rowItem {
-    width: 100%!important;
-  }
-  #footer .footerHTWG {
-    width: 8%!important;
-  }
-  video {
-    position: relative;
-    right: 100px;
-  }
-  .btAltLogo {
-    position: absolute;
-    bottom: 20px;
-    height: 30px!important;
-    display: block!important;
-  }
-  .anfahrtHeader, .anfahrtText {
-    width: 34%;
-  }
-  .btMainLogo {
-    display: none!important;
-  }
-  #firstSection {
-    background-size: 700px;
-  }
-}
 /* Adjusting the menu */
 .mainHeader.btDarkSkin, .btLightSkin .mainHeader.btDarkSkin {
   background-color: rgba(255,255,255,0.8);
@@ -231,4 +185,88 @@ nav {
 .submitDiv {
   display: block;
   margin: auto;
+}
+.rowItemContent {
+  padding: 40px!important;
+}
+.programmDate {
+  font-size: 70px;
+}
+.programmDays {
+  font-size: 25px;
+  display: inline-block;
+  line-height: 1.2;
+}
+.programmTime {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 50px;
+}
+.programm {
+  font-size: 20px;
+  display: inline-block;
+  width: 75%;
+}
+#map {
+  width:100%;
+  height:499px;
+}
+@media (max-width: 1440px) {
+  .port {
+    width: 1150px;
+  }
+  #firstSection {
+    background-position-y: 90px!important;
+  }
+}
+@media (max-width: 480px) {
+  #map {
+    display: none;
+  }
+  #firstSection {
+    height: 100vw;
+    background-position-y: 90px!important;
+  }
+  .form-group {
+    width: 100%!important;
+  }
+
+  #programm .rowItem {
+    width: 100%!important;
+    top: 0!important;
+  }
+  #anfahrt .rowItem {
+    width: 100%!important;
+  }
+  #footer .footerHTWG {
+    width: 8%!important;
+  }
+  video {
+    position: relative;
+    right: 100px;
+  }
+  .btAltLogo {
+    position: absolute;
+    bottom: 20px;
+    height: 30px!important;
+    display: block!important;
+  }
+  .anfahrtHeader, .anfahrtText {
+    width: 34%;
+  }
+  .btMainLogo {
+    display: none!important;
+  }
+  #firstSection {
+    background-size: 700px;
+  }
+  .programmDate {
+    font-size: 55px;
+  }
+  .programmDays {
+    font-size: 20px;
+  }
+  .programm {
+    width: 100%;
+  }
 }

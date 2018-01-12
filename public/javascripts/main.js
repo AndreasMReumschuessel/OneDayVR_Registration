@@ -128,3 +128,17 @@ function validatePlz(string, error)
     string.style.borderColor = "red";
     return (false)
 }
+function myMap() {
+    var oneday = {lat: 47.668637, lng: 9.168608};
+    var focus = {lat: 47.6682692, lng: 9.1712247};
+    var mapOptions = {
+        center: focus,
+        zoom: 17,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+    }
+    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    var marker = new google.maps.Marker({
+        position: oneday,
+        map: map
+    });
+}
