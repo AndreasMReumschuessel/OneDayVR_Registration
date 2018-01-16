@@ -92,11 +92,13 @@ function validateEmail(mail) {
     var value = mail.value;
     var txt = "";
     if (/^([\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00dfa-zA-Z0-9_\.\-])+\@(([\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00dfa-zA-Z0-9\-])+\.)+([\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00dfa-zA-Z0-9]{2,4})+$/.test(value)) {
+        jQuery(document.getElementById("email")).css("margin-bottom", "1em");
         txt = "";
         document.getElementById("emailError").innerHTML = txt;
         mail.style.borderColor = "#ced4da";
         return (true);
     } else {
+        jQuery(document.getElementById("email")).css("margin-bottom", "0");
         txt = "Bitte geben sie eine gültige E-Mail Adresse an.";
         document.getElementById("emailError").innerHTML = txt;
         mail.style.borderColor = "red";
@@ -110,11 +112,13 @@ function validatePhone(phone) {
     var txt = "";
     var phoneNum = value.replace(/[^\d]/g, '');
     if (phoneNum.length > 1) {
+        jQuery(document.getElementById("telefon")).css("margin-bottom", "1em");
         txt = "";
         document.getElementById("telefonError").innerHTML = txt;
         phone.style.borderColor = "#ced4da";
         return true;
     } else {
+        jQuery(document.getElementById("telefon")).css("margin-bottom", "0");
         txt = "Bitte geben sie eine gültige Telefonnummer an."
         document.getElementById("telefonError").innerHTML = txt;
         phone.style.borderColor = "red";
@@ -127,11 +131,13 @@ function validateName(name, error) {
     var value = name.value;
     var txt = "";
     if (/^[a-zA-Z -\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df]+$/.test(value)) {
+        jQuery(jQuery(name).css("margin-bottom", "1em"));
         txt = "";
         document.getElementById(error).innerHTML = txt;
         name.style.borderColor = "#ced4da";
         return (true);
     } else {
+        jQuery(jQuery(name).css("margin-bottom", "0"));
         txt = "Bitte geben sie einen gültigen Namen an.";
         document.getElementById(error).innerHTML = txt;
         name.style.borderColor = "red";
@@ -143,11 +149,13 @@ function validateName(name, error) {
 function validateEmpty(string, error) {
     var txt = "";
     if (string.value != "") {
+        jQuery(jQuery(string).css("margin-bottom", "1em"));
         txt = "";
         document.getElementById(error).innerHTML = txt;
         string.style.borderColor = "#ced4da";
         return (true);
     } else {
+        jQuery(jQuery(string).css("margin-bottom", "0"));
         txt = "Bitte geben sie einen gültigen Wert an.";
         document.getElementById(error).innerHTML = txt;
         string.style.borderColor = "red";
@@ -160,11 +168,13 @@ function validateEmpty(string, error) {
 function validatePlz(string, error) {
     var txt = "";
     if (string.value != "" && string.value.length < 10) {
+        jQuery(jQuery(string).css("margin-bottom", "1em"));
         txt = "";
         document.getElementById(error).innerHTML = txt;
         string.style.borderColor = "#ced4da";
         return (true);
     } else {
+        jQuery(jQuery(string).css("margin-bottom", "0"));
         txt = "Bitte geben sie eine gültige Postleitzahl an.";
         document.getElementById(error).innerHTML = txt;
         string.style.borderColor = "red";
