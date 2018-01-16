@@ -42,6 +42,7 @@ jQuery(document).ready(function () {
 
 function submitForm() {
     var formData = JSON.stringify(objectifyForm(jQuery("#registrationForm").serializeArray()));
+    var frm = document.getElementsByName('registrationForm')[0];
     jQuery.ajax({
         type: "POST",
         url: "/saveStock",
@@ -51,6 +52,7 @@ function submitForm() {
         success: successfullySubmitted,
         error: failSubmit
     });
+    frm.reset();
 }
 
 
