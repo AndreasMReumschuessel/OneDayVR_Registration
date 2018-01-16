@@ -91,7 +91,7 @@ function validate() {
 function validateEmail(mail) {
     var value = mail.value;
     var txt = "";
-    if (/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(value)) {
+    if (/^([\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00dfa-zA-Z0-9_\.\-])+\@(([\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00dfa-zA-Z0-9\-])+\.)+([\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00dfa-zA-Z0-9]{2,4})+$/.test(value)) {
         txt = "";
         document.getElementById("emailError").innerHTML = txt;
         mail.style.borderColor = "#ced4da";
@@ -126,7 +126,7 @@ function validatePhone(phone) {
 function validateName(name, error) {
     var value = name.value;
     var txt = "";
-    if (/^[a-zA-Z ]+$/.test(value)) {
+    if (/^[a-zA-Z -\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df]+$/.test(value)) {
         txt = "";
         document.getElementById(error).innerHTML = txt;
         name.style.borderColor = "#ced4da";
