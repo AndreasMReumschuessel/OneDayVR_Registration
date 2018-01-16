@@ -3,13 +3,12 @@ import javax.inject.{Inject, Singleton}
 
 import play.api.mvc._
 import model.{Firma, FirmaTable, Teilnehmer, TeilnehmerTable}
-import play.api.libs.json
 import slick.jdbc.MySQLProfile.api._
 import slick.lifted.TableQuery
 import model.State
 
-import scala.concurrent.{Future}
-
+import scala.concurrent.Future
+import org.apache.commons.mail.{Email, HtmlEmail, SimpleEmail}
 @Singleton
 class ApplicationController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
   lazy val teilnehmer = TableQuery[TeilnehmerTable]
@@ -87,6 +86,44 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
             case ex: Exception => FAILED_DEPENDENCY
           }
         }
+
+        /*val sm: Email = new SimpleEmail()
+        sm.setSmtpPort(587)
+        sm.setAuthentication("kontakt@onedayvr.de", "")
+        sm.setSSLOnConnect(true)
+        sm.setHostName("smtp.strato.de")
+        sm.setFrom("kontakt@onedayvr.de")
+        sm.addTo("kontakt@onedayvr.de")
+        sm.setSubject("Testmail")
+        sm.setMsg("wer das liest ist doof >:D")
+        sm.send()*/
+
+        val sm: HtmlEmail = new HtmlEmail()
+        sm.setSmtpPort(587)
+        sm.setAuthentication("", "")
+        sm.setSSLOnConnect(true)
+        sm.setHostName("smtp.strato.de")
+        sm.setFrom("kontakt@onedayvr.de")
+        sm.addTo("kontakt@onedayvr.de")
+        sm.setSubject("Testmail")
+        sm.setHtmlMsg("" +
+          "<html>" +
+          "<body>" +
+          "<ul>" +
+          "<li>Anrede: "+anrede+"</li>" +
+          "<li>Titel: "+titel+"</li>" +
+          "<li>Email: "+email+"</li>" +
+          "<li>Vorname: "+vorname+"</li>" +
+          "<li>Nachname: "+nachname+"</li>" +
+          "<li>Firma: "+firmenname+"</li>" +
+          "<li>Ort: "+ort+"</li>" +
+          "<li>Postleitzahl: "+plz+"</li>" +
+          "<li>Strasse: "+strasse+"</li>" +
+          "<li>Telefon: "+telefon+"</li>" +
+          "</ul>" +
+          "</body>" +
+          "</html>")
+        sm.send()
       }
     }
     new Status(state.statuscode)
