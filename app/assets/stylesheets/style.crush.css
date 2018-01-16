@@ -304,7 +304,7 @@ figcaption {
     }
 select,
 input {
-    font-family: Raleway;
+    /*font-family: Raleway;*/
     }
 
 /*html {
@@ -319,7 +319,7 @@ html {
     overflow-x: hidden;
     }
 body {
-    font-family: "Raleway",Arial,sans-serif;
+    /*font-family: "Raleway",Arial,sans-serif;*/
     }
 body {
     font-size: 16px;
@@ -340,7 +340,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     }
 h1,
 h2,
@@ -1665,7 +1665,7 @@ body:not(.btHalfPage) .rowItem:nth-child(11) {
     padding: 20px 0 10px;
     }
 .menuPort {
-    font-family: "Raleway";
+    /*font-family: "Raleway";*/
     visibility: hidden;
     font-size: 18px;
     }
@@ -1711,7 +1711,7 @@ body:not(.btHalfPage) .rowItem:nth-child(11) {
 
 /* Logo and triggers */
 .btTextLogo {
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     font-size: 36px;
     font-weight: 800;
     line-height: 50px;
@@ -3332,7 +3332,7 @@ body.btNoDashInSidebar .btCustomMenu {
 .btBox.widget_calendar table caption {
     background: #3ea2e0;
     color: #FFF;
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     font-weight: 700;
     padding: 5px;
     }
@@ -3413,7 +3413,7 @@ body.btNoDashInSidebar .btCustomMenu {
     margin-bottom: 15px;
     }
 .btBox.widget_rss li a.rsswidget {
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     font-weight: 700;
     }
 .btBox.widget_rss li .rss-date {
@@ -4048,12 +4048,12 @@ form.wpcf7-form .wpcf7-submit:hover {
     border: 0;
     cursor: pointer;
     padding: 0 15px;
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     }
 
 /* Pagination */
 .btPagination {
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     font-weight: 600;
     font-size: 21px;
     }
@@ -4129,7 +4129,7 @@ form.wpcf7-form .wpcf7-submit:hover {
 
 /* Comment respond */
 .comment-respond .btnOutline button[type="submit"] {
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     margin: -7px -12px;
     padding: 7px 20px;
     height: 41px;
@@ -5104,7 +5104,7 @@ a.btContinueReading:hover {
 
 /* Counter */
 .btCounterHolder {
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     }
 .btCounterHolder {
     font-size: 70px;
@@ -5882,7 +5882,7 @@ to {
     width: 100px;
     height: 100px;
     border-radius: 50px;
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     }
 .btPriceTableSticker > div {
     display: table;
@@ -6013,7 +6013,7 @@ to {
     display: inline-block;
     }
 .header .btSuperTitle {
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     font-size: 11px;
     letter-spacing: 3px;
     padding-top: 3px;
@@ -6023,7 +6023,7 @@ to {
     -webkit-backface-visibility: hidden;
     }
 .header .btSubTitle {
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     font-size: 18px;
     padding-top: 0;
     line-height: 28px;
@@ -7096,7 +7096,7 @@ h4.nbs a .nbsItem .nbsDir {
     line-height: 16px;
     letter-spacing: 3px;
     color: #3ea2e0;
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     text-transform: uppercase;
     font-weight: 400;
     }
@@ -7596,7 +7596,7 @@ h4.nbs.nsNext a:hover:after {
     cursor: pointer;
     position: relative;
     font-size: 21px;
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     }
 .tabsHeader li:hover a,
 .tabsHeader li.on a {
@@ -7653,7 +7653,7 @@ h4.nbs.nsNext a:hover:after {
     margin: 0;
     cursor: pointer;
     position: relative;
-    font-family: "Roboto";
+    /*font-family: "Roboto";*/
     font-size: 21px;
     }
 .tabsVertical .tabAccordionTitle span {
