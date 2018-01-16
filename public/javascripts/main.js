@@ -19,6 +19,7 @@ jQuery(document).ready(function () {
     });
     jQuery('#vorname').on('keypress keyup keydown', function () {
         validateName(document.getElementById("vorname"), "vornameError")
+        jQuery(document.getElementById("vorname").parentElement).css("margin-bottom", "0");
     });
     jQuery('#nachname').on('keypress keyup keydown', function () {
         validateName(document.getElementById("nachname"), "nachnameError")
