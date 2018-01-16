@@ -180,7 +180,7 @@ function myMap() {
     var mapOptions = {
         center: focus,
         zoom: 17,
-        mapTypeId: google.maps.MapTypeId.HYBRID
+        mapTypeId: google.maps.MapTypeId.ROADMAP
     }
     var map = new google.maps.Map(document.getElementById("map"), mapOptions);
     var marker = new google.maps.Marker({
