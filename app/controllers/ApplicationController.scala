@@ -23,6 +23,10 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
     Ok(views.html.index("Hallo"))
   }
 
+  def impressum=Action{
+    Ok(views.html.impressum.render())
+  }
+
   def getJsonString(value: String): String ={
     value.slice(1, value.length-1)
   }
