@@ -2,6 +2,10 @@
   font-family: 'GT Pressura';
   src: url("fonts/GTPressura.otf") format('opentype');
 }
+@font-face {
+  font-family: 'GT Pressura Light';
+  src: url("fonts/GTPressuraLight.ttf") format('truetype');
+}
 html, body {
   font-family: 'GT Pressura', sans-serif!important;
 }
@@ -196,18 +200,27 @@ nav {
 .rowItemContent {
   padding: 40px!important;
 }
+#programm p {
+  font-family: 'GT Pressura Light', sans-serif;
+}
+#programm strong {
+  font-family: "GT Pressura", sans-serif;
+}
 .programmDate {
   font-size: 70px;
+  font-family: "GT Pressura"!important;
 }
 .programmDays {
   font-size: 25px;
   display: inline-block;
   line-height: 1.2;
+  font-family: "GT Pressura"!important;
 }
 .programmTime {
   display: inline-block;
   vertical-align: top;
   margin-right: 50px;
+  margin-top: 5px;
 }
 .programm {
   font-size: 20px;
@@ -219,16 +232,15 @@ nav {
   height:499px;
 }
 .form-group {
-  margin-bottom: 45spx;
+  //margin-bottom: 45px;
 }
+
 @media (max-width: 1440px) {
   .port {
     width: 1150px;
   }
-  #firstSection {
-    background-position-y: 90px!important;
-  }
 }
+
 @media (max-width: 480px) {
   #map {
     display: none;

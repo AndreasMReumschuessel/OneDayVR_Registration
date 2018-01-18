@@ -17,3 +17,4 @@ libraryDependencies ++= Seq(
 )
 
 libraryDependencies += "com.typesafe.play" %% "play-json" % "2.6.7"
+libraryDependencies += "com.typesafe.play" %% "play-mailer" % "6.0.1"
