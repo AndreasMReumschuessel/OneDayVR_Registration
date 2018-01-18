@@ -3,13 +3,28 @@ jQuery(document).ready(function () {
     console.log("Ready!");
     jQuery('#firma').click(function () {
         jQuery('#firmenname').removeAttr("disabled");
+        jQuery('#ticket').children().remove();
+        jQuery('#ticket').append("<option value=\"Konferenz + Workshop 75€\">Konferenz + Workshop 75€</option>\n" +
+            "<option value=\"Workshop 50€\">Workshop 50€</option>")
     });
 
     jQuery('#privat').click(function () {
         jQuery('#firmenname').attr("disabled", "disabled");
+        jQuery('#ticket').children().remove();
+        jQuery('#ticket').append("<option value=\"Konferenz + Workshop 75€\">Konferenz + Workshop 75€</option>\n" +
+            "<option value=\"Workshop 50€\">Workshop 50€</option>")
     });
-    jQuery('#anrede').fancySelect();
-    jQuery('#titel').fancySelect();
+
+    jQuery("#student").click(function() {
+        jQuery('#ticket').children().remove();
+        jQuery('#ticket').append("<option value=\"Konferenz + Workshop 0€\">Konferenz + Workshop 0€</option>\n" +
+            "<option value=\"Workshop 0€\">Workshop 0€</option>")
+    })
+
+    // jQuery('#titel').fancySelect();
+    // jQuery('#anrede').fancySelect();
+    // jQuery('#ticket').fancySelect();
+
 
     jQuery('#email').on('keypress keyup keydown', function () {
         validateEmail(document.getElementById("email"))

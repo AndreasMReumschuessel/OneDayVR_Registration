@@ -179,12 +179,15 @@
                                                                 <input type="text" class="form-control" id="nachname" name="nachname" style="margin-bottom: 1em">
                                                                 <p id="nachnameError"></p>
                                                             </div>
-
-                                                            <div class="form-group" style="float: left; margin-bottom: 39px;">
-                                                                <label for="firmenname" style="margin-right: 30px;">Firmenname</label>
+                                                            <div class="form-group" style="float: left;">
                                                                 <div class="form-check form-check-inline">
                                                                     <label class="form-check-label">
-                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="privat" value="privat" checked> Privat
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="student" value="student" checked> Student
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="privat" value="privat"> Privat
                                                                     </label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
@@ -192,27 +195,30 @@
                                                                         <input class="form-check-input" type="radio" name="firmaOptions" id="firma" value="firma"> Firma
                                                                     </label>
                                                                 </div>
-                                                                <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname" style="margin-bottom: 1em">
+                                                                <select class="form-control" id="ticket" name="ticket">
+                                                                    <option value="Konferenz + Workshop 0€">Konferenz + Workshop 0€</option>
+                                                                    <option value="Workshop 0€">Workshop 0€</option>
+                                                                </select>
+                                                                <p style="margin-bottom: 14px;"></p>
                                                             </div>
-                                                            <div class="form-group" style="float: right; margin-bottom: 41px;">
+                                                            <div class="form-group" style="float: right;">
                                                                 <label for="strasse">Strasse/Nummer*</label>
                                                                 <input type="text" class="form-control" name="strasse" id="strasse" style="margin-bottom: 1em">
                                                                 <p id="streetError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: left;">
+                                                                <label for="firmenname">Firma/Institution</label>
+                                                                <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname" style="margin-bottom: 1em">
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
                                                                 <label for="postleitzahl">Postleitzahl*</label>
                                                                 <input type="text" class="form-control" name="postleitzahl" id="postleitzahl" style="margin-bottom: 1em">
                                                                 <p id="postleitzahlError"></p>
                                                             </div>
-                                                            <div class="form-group" style="float: right;">
+                                                            <div class="form-group" style="float: left;">
                                                                 <label for="ort">Ort*</label>
                                                                 <input type="text" class="form-control" name="ort" id="ort" style="margin-bottom: 1em">
                                                                 <p id="ortError"></p>
-                                                            </div>
-                                                            <div class="form-group" style="float: left;">
-                                                                <label for="telefon">Telefon*</label>
-                                                                <input type="text" class="form-control" name="telefon" id="telefon" style="margin-bottom: 1em">
-                                                                <p id="telefonError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: right;">
                                                                 <label for="email">E-Mail Addresse*</label>
@@ -451,7 +457,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Es ist ein Fehler aufgetreten. Eventuell sind keine Plätze mehr frei.</p>
+                    <p>Es ist ein Fehler aufgetreten. Eventuell sind keine Plätze mehr frei. Bei Problemen schreiben Sie bitte eine E-Mail an kontakt@@onedayvr.de</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
