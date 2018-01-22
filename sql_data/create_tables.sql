@@ -14,7 +14,7 @@ CREATE TABLE teilnehmer (
   nachname VARCHAR(50) NOT NULL,
   vorname VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL,
-  telefon VARCHAR(50) NOT NULL,
+  ticket VARCHAR(100) NOT NULL,
   fnummer INT(6) UNSIGNED,
   FOREIGN KEY (fnummer) REFERENCES firma(fnummer)
 ) ENGINE=INNODB;

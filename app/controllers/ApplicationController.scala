@@ -46,6 +46,9 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         val email = getJsonString((json \ "email").get.toString())
         state.addDataEntry(email, "(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])")
 
+        val firmaOptions = getJsonString((json \ "firmaOptions").get.toString())
+        state.addDataEntry(firmaOptions, "student|firma|privat")
+
         var firmenname:String = "privat"
 
         try{
@@ -67,8 +70,9 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         val strasse = getJsonString((json \ "strasse").get.toString())
         state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|ß|\\s|\\-\\.|0-9]{2,}")
 
-        val telefon = getJsonString((json \ "telefon").get.toString())
-        state.addDataEntry(telefon, "^\\+{0,1}[0-9\\s]*")
+        val ticket = getJsonString((json \ "ticket").get.toString())
+        //no pattern matching.
+
 
         val titel = getJsonString((json \ "titel").get.toString())
         state.addDataEntry(titel, "(Professor|Dr.|Professor Dr.){0,1}")
@@ -86,7 +90,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         {
           val fnummer:Int = insertFirma(Firma(firmenname, DEFAULT_FIRMENID, strasse, plz, ort))
           try{
-            insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer, titel, anrede, telefon))
+            insertTeilnehmer(Teilnehmer(vorname, nachname, email, fnummer, titel, anrede, ticket))
             //send email to host
             val sm: HtmlEmail = new HtmlEmail()
             sm.setSmtpPort(ConfigFactory.load().getInt("smtp.port"))
@@ -105,11 +109,11 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
               "<li>Email: "+email+"</li>" +
               "<li>Vorname: "+vorname+"</li>" +
               "<li>Nachname: "+nachname+"</li>" +
+              "<li>Art: "+firmaOptions+"</li>" +
               "<li>Firma: "+firmenname+"</li>" +
               "<li>Ort: "+ort+"</li>" +
               "<li>Postleitzahl: "+plz+"</li>" +
               "<li>Strasse: "+strasse+"</li>" +
-              "<li>Telefon: "+telefon+"</li>" +
               "</ul>" +
               "</body>" +
               "</html>")

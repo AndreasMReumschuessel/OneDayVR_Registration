@@ -16,6 +16,7 @@ jQuery(document).ready(function () {
     });
 
     jQuery("#student").click(function() {
+        jQuery('#firmenname').removeAttr("disabled");
         jQuery('#ticket').children().remove();
         jQuery('#ticket').append("<option value=\"Konferenz + Workshop 0€\">Konferenz + Workshop 0€</option>\n" +
             "<option value=\"Workshop 0€\">Workshop 0€</option>")
