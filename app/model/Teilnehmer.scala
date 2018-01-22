@@ -9,7 +9,7 @@ final case class Teilnehmer(
                            fnummer: Int,
                            titel: String,
                            anrede: String,
-                           telefon: String
+                           ticket: String
                            )
 final class TeilnehmerTable(tag: Tag) extends Table[Teilnehmer](tag, "teilnehmer"){
 
@@ -18,8 +18,8 @@ final class TeilnehmerTable(tag: Tag) extends Table[Teilnehmer](tag, "teilnehmer
   def email       = column[String]("email")
   def titel       = column[String]("titel")
   def anrede      = column[String]("anrede")
-  def telefon      = column[String]("telefon")
   def fnummer     = column[Int]("fnummer")
+  def ticket      = column[String]("ticket")
 
-  def * = (vorname, nachname, email, fnummer, titel, anrede, telefon).mapTo[Teilnehmer]
+  def * = (vorname, nachname, email, fnummer, titel, anrede, ticket).mapTo[Teilnehmer]
 }
