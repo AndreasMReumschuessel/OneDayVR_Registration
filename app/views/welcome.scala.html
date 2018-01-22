@@ -124,7 +124,7 @@
                                                     </div>
                                                     <header class="header btClear medium">
                                                         <div class="btSubTitle">OneDay_VR ist eine Virtual Reality Konferenz.
-                                                            <br>Sie zeigt Herausforderungen, Lösungsansätze und allgemein Wissenwertes aus den Bereichen VR und AR. Schon zum dritten Mal veranstalten Studierende der HTWG Konstanz dieses Event und bilden damit eine Plattform für Austausch zu diesen Themen.
+                                                            <br>Sie zeigt Herausforderungen, Lösungsansätze und allgemein Wissenwertes aus den Bereichen VR und AR. Studierende der HTWG Konstanz veranstalten dieses Event und bilden damit eine Plattform für Austausch zu diesen Themen.
                                                             <br>
                                                             <br>Unter dem Motto „Real Virtual Work“ rückt dieses Jahr vor allem das Thema „Arbeit und Berufe in der Zukunft“ in den Mittelpunkt. Durch Workshops, Keynotes von geladenen Gästen und Vorträge über die VR-Projekte des vergangenen Semesters wird ein breites Informationsspektrum dargestellt.</div>
                                                     </header>
@@ -179,12 +179,15 @@
                                                                 <input type="text" class="form-control" id="nachname" name="nachname" style="margin-bottom: 1em">
                                                                 <p id="nachnameError"></p>
                                                             </div>
-
-                                                            <div class="form-group" style="float: left; margin-bottom: 39px;">
-                                                                <label for="firmenname" style="margin-right: 30px;">Firmenname</label>
+                                                            <div class="form-group" style="float: left;">
                                                                 <div class="form-check form-check-inline">
                                                                     <label class="form-check-label">
-                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="privat" value="privat" checked> Privat
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="student" value="student" checked> Student
+                                                                    </label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <label class="form-check-label">
+                                                                        <input class="form-check-input" type="radio" name="firmaOptions" id="privat" value="privat"> Privat
                                                                     </label>
                                                                 </div>
                                                                 <div class="form-check form-check-inline">
@@ -192,27 +195,30 @@
                                                                         <input class="form-check-input" type="radio" name="firmaOptions" id="firma" value="firma"> Firma
                                                                     </label>
                                                                 </div>
-                                                                <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname" style="margin-bottom: 1em">
+                                                                <select class="form-control" id="ticket" name="ticket">
+                                                                    <option value="Konferenz + Workshop 0€">Konferenz + Workshop 0€</option>
+                                                                    <option value="Workshop 0€">Workshop 0€</option>
+                                                                </select>
+                                                                <p style="margin-bottom: 14px;"></p>
                                                             </div>
-                                                            <div class="form-group" style="float: right; margin-bottom: 41px;">
+                                                            <div class="form-group" style="float: right;">
                                                                 <label for="strasse">Strasse/Nummer*</label>
                                                                 <input type="text" class="form-control" name="strasse" id="strasse" style="margin-bottom: 1em">
                                                                 <p id="streetError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: left;">
+                                                                <label for="firmenname">Firma/Institution</label>
+                                                                <input disabled="disabled" type="text" class="form-control" name="firmenname" id="firmenname" style="margin-bottom: 1em">
+                                                            </div>
+                                                            <div class="form-group" style="float: right;">
                                                                 <label for="postleitzahl">Postleitzahl*</label>
                                                                 <input type="text" class="form-control" name="postleitzahl" id="postleitzahl" style="margin-bottom: 1em">
                                                                 <p id="postleitzahlError"></p>
                                                             </div>
-                                                            <div class="form-group" style="float: right;">
+                                                            <div class="form-group" style="float: left;">
                                                                 <label for="ort">Ort*</label>
                                                                 <input type="text" class="form-control" name="ort" id="ort" style="margin-bottom: 1em">
                                                                 <p id="ortError"></p>
-                                                            </div>
-                                                            <div class="form-group" style="float: left;">
-                                                                <label for="telefon">Telefon*</label>
-                                                                <input type="text" class="form-control" name="telefon" id="telefon" style="margin-bottom: 1em">
-                                                                <p id="telefonError"></p>
                                                             </div>
                                                             <div class="form-group" style="float: right;">
                                                                 <label for="email">E-Mail Addresse*</label>
@@ -297,6 +303,7 @@
                                                         <div style="display: block; margin-bottom: 20px;">
                                                             <p class="programmTime">ab 10:00</p>
                                                             <p class="programm"><strong>VR zum Ausprobieren:</strong> Zahlreiche Applikationen in verschiedenen Locations
+                                                                <br>
                                                                 <br> Inspirierende Keynotes: <strong>Insights aus der Unternehmenswelt</strong>
                                                                 <br>
                                                                 <br> Beim <strong>Planspiel Unternehmensgründung</strong> kämpfen vier <strong>VR-Startups</strong> um die Gunst der Tagungsteilnehmer
@@ -404,6 +411,9 @@
                                                         <div class="btImage"><img src="@routes.Assets.versioned("images/onedayvr-logo.png")" alt="OneDay VR Logo">
                                                         </div>
                                                     </div>
+                                                    <div class="impressum" style="display: inline-block; float: right; position: relative; top: 10px;">
+                                                        <a style="font-size: 25px; color: black;" href='@routes.ApplicationController.impressum'>Impressum</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -447,7 +457,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Es ist ein Fehler aufgetreten. Eventuell sind keine Plätze mehr frei.</p>
+                    <p>Es ist ein Fehler aufgetreten. Eventuell sind keine Plätze mehr frei. Bei Problemen schreiben Sie bitte eine E-Mail an kontakt@@onedayvr.de</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Schließen</button>
