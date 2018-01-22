@@ -111,6 +111,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
               "<li>Nachname: "+nachname+"</li>" +
               "<li>Art: "+firmaOptions+"</li>" +
               "<li>Firma: "+firmenname+"</li>" +
+              "<li>Tickettyp: "+ticket+"</li>" +
               "<li>Ort: "+ort+"</li>" +
               "<li>Postleitzahl: "+plz+"</li>" +
               "<li>Strasse: "+strasse+"</li>" +
