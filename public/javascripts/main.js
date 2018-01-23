@@ -4,30 +4,30 @@ jQuery(document).ready(function () {
     jQuery('#firma').click(function () {
         jQuery('#firmenname').removeAttr("disabled");
         jQuery('#ticket').children().remove();
-        jQuery('#ticket').append("<option value=\"Konferenz + Workshop 75€\">Konferenz + Workshop 75€</option>\n" +
-            "<option value=\"Konferenz 50€\">Workshop 50€</option>")
+        jQuery('#ticket').append("<option value=\"Workshop + Konferenz 75€\">Workshop + Konferenz 75€</option>\n" +
+            "<option value=\"Konferenz 50€\">Konferenz 50€</option>")
     });
 
     jQuery('#privat').click(function () {
         jQuery('#firmenname').attr("disabled", "disabled");
         jQuery('#ticket').children().remove();
-        jQuery('#ticket').append("<option value=\"Konferenz + Workshop 75€\">Konferenz + Workshop 75€</option>\n" +
-            "<option value=\"Konferenz 50€\">Workshop 50€</option>")
+        jQuery('#ticket').append("<option value=\"Workshop + Konferenz 75€\">Workshop + Konferenz 75€</option>\n" +
+            "<option value=\"Konferenz 50€\">Konferenz 50€</option>")
     });
 
     jQuery("#student").click(function() {
         jQuery('#firmenname').removeAttr("disabled");
         jQuery('#ticket').children().remove();
-        jQuery('#ticket').append("<option value=\"Konferenz + Workshop 0€\">Konferenz + Workshop 0€</option>\n" +
-            "<option value=\"Konferenz 0€\">Workshop 0€</option>")
+        jQuery('#ticket').append("<option value=\"Workshop + Konferenz 0€\">Workshop + Konferenz 0€</option>\n" +
+            "<option value=\"Konferenz 0€\">Konferenz 0€</option>")
     })
 
     jQuery("#premium").click(function() {
         jQuery('#firmenname').removeAttr("disabled");
         jQuery('#ticket').children().remove();
-        jQuery('#ticket').append("<option value=\"Konferenz + Workshop (1 Pers - 150 €)\">Konferenz + Workshop 150€ (1 Pers - 150 €)</option>\n" +
-            "<option value=\"Konferenz + Workshop 280€ (2 Pers - 280 €)\">Konferenz + Workshop (2 Pers - 280 €)</option>" +
-            "<option value=\"Konferenz + Workshop 500€ (4 Pers - 500 €)\">Konferenz + Workshop (4 Pers - 500 €)</option>")
+        jQuery('#ticket').append("<option value=\"Workshop + Konferenz (1 Pers - 150 €)\">Workshop + Konferenz 150€ (1 Pers - 150 €)</option>\n" +
+            "<option value=\"Workshop + Konferenz 280€ (2 Pers - 280 €)\">Workshop + Konferenz (2 Pers - 280 €)</option>" +
+            "<option value=\"Workshop + Konferenz 500€ (4 Pers - 500 €)\">Workshop + Konferenz (4 Pers - 500 €)</option>")
     })
 
 
