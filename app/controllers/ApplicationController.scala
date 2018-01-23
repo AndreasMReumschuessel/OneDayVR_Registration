@@ -19,7 +19,6 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
   val MAXGUESTS = 250
 
   def index=Action{
-    db.createSession()
     Ok(views.html.index("Hallo"))
   }
 
@@ -32,6 +31,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
   }
 
   def saveStock=Action{request =>
+    db.createSession()
     val state = State()
     val json = request.body.asJson.get
     if(json == null){
@@ -73,8 +73,12 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         val ticket = getJsonString((json \ "ticket").get.toString())
         //no pattern matching.
         var persons = 1
-        if(ticket.contains("Pers 2")) persons = 2
-        if(ticket.contains("Pers 4")) persons = 4
+        /*
+        It would be better if the number of perons are saved in the json.
+        Instead you need to make deep changes in the backend when the text in the fronted is altered.
+         */
+        if(ticket.contains("2 Pers")) persons = 2
+        if(ticket.contains("4 Pers")) persons = 4
 
         println("Debug persons: " + persons)
         val titel = getJsonString((json \ "titel").get.toString())
@@ -107,7 +111,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
             sm.setHostName("smtp.strato.de")
             sm.setFrom("kontakt@onedayvr.de")
             sm.addTo("kontakt@onedayvr.de")
-            sm.setSubject("Testmail")
+            sm.setSubject("Registrierungsbenachrichtigung")
             sm.setHtmlMsg("" +
               "<html>" +
               "<body>" +
@@ -133,6 +137,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         }
       }
     }
+    db.close()
     new Status(state.statuscode)
   }
 
