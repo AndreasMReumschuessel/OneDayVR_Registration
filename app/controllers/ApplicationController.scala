@@ -9,7 +9,7 @@ import model.State
 import com.typesafe.config.ConfigFactory
 
 import scala.concurrent.Future
-import org.apache.commons.mail.{Email, HtmlEmail, SimpleEmail}
+import org.apache.commons.mail.{HtmlEmail}
 @Singleton
 class ApplicationController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
   lazy val teilnehmer = TableQuery[TeilnehmerTable]
@@ -31,7 +31,6 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
   }
 
   def saveStock=Action{request =>
-    db.createSession()
     val state = State()
     val json = request.body.asJson.get
     if(json == null){
@@ -137,7 +136,6 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         }
       }
     }
-    db.close()
     new Status(state.statuscode)
   }
 
