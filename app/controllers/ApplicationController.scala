@@ -60,7 +60,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
       }
 
         val nachname = getJsonString((json \ "nachname").get.toString())
-        state.addDataEntry(nachname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
+        state.addDataEntry(nachname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.|0-9]{2,}")
 
         val ort = getJsonString((json \ "ort").get.toString())
         state.addDataEntry(ort, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
@@ -69,7 +69,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         state.addDataEntry(plz, "^[0-9]+")
 
         val strasse = getJsonString((json \ "strasse").get.toString())
-        state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|ß|\\s|\\-\\.|0-9]{2,}")
+        state.addDataEntry(strasse, "^[A-z|üÜ|öÖ|äÄ|ß|\\s|\\-\\.|0-9|+]{2,}")
 
         val ticket = getJsonString((json \ "ticket").get.toString())
         //no pattern matching.
@@ -86,7 +86,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         state.addDataEntry(titel, "(Professor|Dr.|Professor Dr.){0,1}")
 
         val vorname = getJsonString((json \ "vorname").get.toString())
-        state.addDataEntry(vorname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
+        state.addDataEntry(vorname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.|0-9]{2,}")
 
         //validate data
         while(state.hasNext()){
