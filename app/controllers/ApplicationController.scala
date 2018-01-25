@@ -50,12 +50,14 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
 
         var firmenname:String = "privat"
 
-        try{
-          firmenname = getJsonString((json \ "firmenname").get.toString())
-          state.addDataEntry(firmenname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
-        }catch{
-          case ex: NoSuchElementException => println("[info] use privat teilnehmer")
-        }
+      try{
+        firmenname = getJsonString((json \ "firmenname").get.toString())
+        if(firmenname.isEmpty)
+            firmenname = firmaOptions //in case someone types nothing in instution
+        state.addDataEntry(firmenname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
+      }catch{
+        case ex: NoSuchElementException => println("[info] use privat teilnehmer")
+      }
 
         val nachname = getJsonString((json \ "nachname").get.toString())
         state.addDataEntry(nachname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
