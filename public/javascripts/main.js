@@ -35,9 +35,6 @@ jQuery(document).ready(function () {
     jQuery('#email').on('keypress keyup keydown', function () {
         validateEmail(document.getElementById("email"))
     });
-    jQuery('#telefon').on('keypress keyup keydown', function () {
-        validatePhone(document.getElementById("telefon"))
-    });
     jQuery('#vorname').on('keypress keyup keydown', function () {
         validateName(document.getElementById("vorname"), "vornameError")
         jQuery(document.getElementById("vorname").parentElement).css("margin-bottom", "0");
@@ -46,13 +43,13 @@ jQuery(document).ready(function () {
         validateName(document.getElementById("nachname"), "nachnameError")
     });
     jQuery('#strasse').on('keypress keyup keydown', function () {
-        validateEmpty(document.getElementById("strasse"), "streetError")
+        validateStreet(document.getElementById("strasse"), "streetError")
     });
     jQuery('#postleitzahl').on('keypress keyup keydown', function () {
         validatePlz(document.getElementById("postleitzahl"), "postleitzahlError")
     });
     jQuery('#ort').on('keypress keyup keydown', function () {
-        validateEmpty(document.getElementById("ort"), "ortError")
+        validateOrt(document.getElementById("ort"), "ortError")
     });
 
     jQuery("#registrationForm").submit(function(e){
@@ -100,12 +97,11 @@ function objectifyForm(formArray) {//serialize data function
 function validate() {
     return(!(
             validateEmail(document.getElementById("email")) ||
-            validatePhone(document.getElementById("telefon")) ||
             validateName(document.getElementById("vorname"), "vornameError") ||
             validateName(document.getElementById("nachname"), "nachnameError") ||
-            validateEmpty(document.getElementById("strasse"), "streetError") ||
+            validateStreet(document.getElementById("strasse"), "streetError") ||
             validatePlz(document.getElementById("postleitzahl"), "postleitzahlError") ||
-            validateEmpty(document.getElementById("ort"), "ortError")
+            validateOrt(document.getElementById("ort"), "ortError")
         )
     )
 }
@@ -113,7 +109,7 @@ function validate() {
 function validateEmail(mail) {
     var value = mail.value;
     var txt = "";
-    if (/^([\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00dfa-zA-Z0-9_\.\-])+\@(([\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00dfa-zA-Z0-9\-])+\.)+([\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00dfa-zA-Z0-9]{2,4})+$/.test(value)) {
+    if (/(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(value)) {
         jQuery(document.getElementById("email")).css("margin-bottom", "1em");
         txt = "";
         document.getElementById("emailError").innerHTML = txt;
@@ -152,7 +148,43 @@ function validatePhone(phone) {
 function validateName(name, error) {
     var value = name.value;
     var txt = "";
-    if (/^[a-zA-Z -\u00c4\u00e4\u00d6\u00f6\u00dc\u00fc\u00df]+$/.test(value)) {
+    if (/^[A-z|üÜ|öÖ|äÄ|\s|\-\.]{2,}/.test(value)) {
+        jQuery(jQuery(name).css("margin-bottom", "1em"));
+        txt = "";
+        document.getElementById(error).innerHTML = txt;
+        name.style.borderColor = "#ced4da";
+        return (true);
+    } else {
+        jQuery(jQuery(name).css("margin-bottom", "0"));
+        txt = "Bitte geben sie einen gültigen Namen an.";
+        document.getElementById(error).innerHTML = txt;
+        name.style.borderColor = "red";
+        return (false)
+    }
+
+}
+function validateStreet(name, error) {
+    var value = name.value;
+    var txt = "";
+    if (/^[A-z|üÜ|öÖ|äÄ|ß|\s|\-\.|0-9]{2,}/.test(value)) {
+        jQuery(jQuery(name).css("margin-bottom", "1em"));
+        txt = "";
+        document.getElementById(error).innerHTML = txt;
+        name.style.borderColor = "#ced4da";
+        return (true);
+    } else {
+        jQuery(jQuery(name).css("margin-bottom", "0"));
+        txt = "Bitte geben sie einen gültigen Namen an.";
+        document.getElementById(error).innerHTML = txt;
+        name.style.borderColor = "red";
+        return (false)
+    }
+
+}
+function validateOrt(name, error) {
+    var value = name.value;
+    var txt = "";
+    if (/^[A-z|üÜ|öÖ|äÄ|\s|\-\.]{2,}/.test(value)) {
         jQuery(jQuery(name).css("margin-bottom", "1em"));
         txt = "";
         document.getElementById(error).innerHTML = txt;
@@ -168,24 +200,6 @@ function validateName(name, error) {
 
 }
 
-function validateEmpty(string, error) {
-    var txt = "";
-    if (string.value != "") {
-        jQuery(jQuery(string).css("margin-bottom", "1em"));
-        txt = "";
-        document.getElementById(error).innerHTML = txt;
-        string.style.borderColor = "#ced4da";
-        return (true);
-    } else {
-        jQuery(jQuery(string).css("margin-bottom", "0"));
-        txt = "Bitte geben sie einen gültigen Wert an.";
-        document.getElementById(error).innerHTML = txt;
-        string.style.borderColor = "red";
-        return (false)
-    }
-
-
-}
 
 function validatePlz(string, error) {
     var txt = "";
