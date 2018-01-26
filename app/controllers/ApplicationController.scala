@@ -8,11 +8,6 @@ import slick.lifted.TableQuery
 import model.State
 import com.typesafe.config.ConfigFactory
 
-import scala.util.{Failure, Success}
-import scala.concurrent.{Future, Await}
-import scala.concurrent.duration.Duration
-import scala.concurrent.ExecutionContext.Implicits.global
-
 import scala.concurrent.Future
 import org.apache.commons.mail.{HtmlEmail}
 @Singleton
