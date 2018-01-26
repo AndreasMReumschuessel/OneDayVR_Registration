@@ -159,7 +159,6 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
     val erg = db.run((firmen returning firmen.map(_.fnummer)) += f)
     while(!erg.isCompleted){} //we need to wait till the thread terminates ¯\_(ツ)_/¯
     erg.value.get.get
-
   }
 
 }
