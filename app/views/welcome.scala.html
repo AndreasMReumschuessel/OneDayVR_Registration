@@ -183,7 +183,7 @@
                                                                 <input type="text" class="form-control" id="nachname" name="nachname" style="margin-bottom: 1em">
                                                                 <p id="nachnameError"></p>
                                                             </div>
-                                                            <div class="form-group" style="float: left;">
+                                                            <div class="form-group ticketType">
                                                                 <div class="form-check form-check-inline">
                                                                     <label class="form-check-label">
                                                                         <input class="form-check-input" type="radio" name="firmaOptions" id="student" value="student" checked> Student
@@ -405,24 +405,40 @@
                         </div>
                     </section>
                     <section id="footer" class="boldSection btDivider topSemiSpaced bottomSemiSpaced gutter btTopVertical" style="background-color:#fde825;">
-                        <div class="port">
+                        <div class="port" style="padding-top: 54px; padding-bottom: 54px!important;">
                             <div class="boldCell">
                                 <div class="boldCellInner">
                                     <div class="boldRow ">
                                         <div class="boldRowInner">
-                                            <div class="rowItem col-md-12 col-ms-12  btTextCenter inherit" data-width="12">
-                                                <div class="rowItemContent">
-                                                    <div class="bpgPhoto footerHTWG" style="width: 5%;">
+                                            <div class="rowItem col-md-1 col-ms-1  btTextCenter inherit" data-width="1">
+                                                <div class="rowItemContent" style="padding: 0!important;">
+                                                    <div class="bpgPhoto footerHTWG">
                                                         <div class="btImage"><img src="@routes.Assets.versioned("images/htwg-logo.png")" alt="HTWG Logo">
                                                         </div>
                                                     </div>
-                                                    <div class="bpgPhoto footerLogo" style="width: 30%; position: relative; bottom: 10px; margin-left: 42px;">
-                                                        <div class="btImage"><img src="@routes.Assets.versioned("images/onedayvr-logo.png")" alt="OneDay VR Logo">
-                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-3 col-ms-3  btTextCenter inherit" data-width="3">
+                                                <div class="bpgPhoto footerLogo" style="position: relative; top: 20px;">
+                                                    <div class="btImage"><img src="@routes.Assets.versioned("images/onedayvr-logo.png")" alt="OneDay VR Logo">
                                                     </div>
-                                                    <div class="impressum" style="display: inline-block; float: right; position: relative; top: 10px;">
-                                                        <a style="font-size: 25px; color: black;" href='@routes.ApplicationController.impressum'>Impressum</a>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-3 col-ms-3  btTextCenter inherit" data-width="3">
+                                                <div class="bpgPhoto footerLogo" style="position: relative;">
+                                                    <div class="btImage" style="width: 50%;"><img src="@routes.Assets.versioned("images/ZHAW_School-of-Engineering Kopieblack.png")" alt="ZHAW Logo">
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-3 col-ms-3  btTextCenter inherit" data-width="3">
+                                                <div class="bpgPhoto footerLogo" style="position: relative;">
+                                                    <div class="btImage" style="width: 50%;"><img src="@routes.Assets.versioned("images/cyberLAGO.png")" alt="cyberLAGOsbt run Logo">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="rowItem col-md-2 col-ms-2  btTextCenter inherit" data-width="3">
+                                                <div class="impressum" style="display: inline-block; float: right; position: relative; top: 20px;">
+                                                    <a style="font-size: 25px; color: black;" href='@routes.ApplicationController.impressum'>Impressum</a>
                                                 </div>
                                             </div>
                                         </div>

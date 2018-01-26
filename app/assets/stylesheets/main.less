@@ -234,7 +234,15 @@ nav {
 .form-group {
   //margin-bottom: 45px;
 }
-
+.ticketType {
+  position: relative;
+  left: -10%;
+}
+#footer {
+  .btImage {
+    margin: auto;
+  }
+}
 @media (max-width: 1440px) {
   .port {
     width: 1150px;
@@ -244,12 +252,22 @@ input:not([type='radio']), select.form-control:not([size]):not([multiple]) {
   height: 50px;
 }
 @media (max-width: 480px) {
+  #footer {
+    .btImage {
+      margin-top: 80px;
+    }
+  }
+  .ticketType {
+    position: initial;
+    float: left;
+  }
   #anfahrt {
     .rowItemContent {
       padding-left: 14px!important;
     }
   }
   .impressum {
+    margin-top: 80px;
     width: 150px;
     float: none!important;
   }
@@ -275,7 +293,7 @@ input:not([type='radio']), select.form-control:not([size]):not([multiple]) {
     width: 100%!important;
   }
   #footer .footerHTWG {
-    width: 8%!important;
+    width: 30%!important;
   }
   video {
     position: relative;
