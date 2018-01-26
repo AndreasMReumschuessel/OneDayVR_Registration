@@ -153,25 +153,11 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
   }
 
   def listAllFirma():Unit={
-    val queryFuture = Future {
-      db.run(firmen.result)
-    }
-
-    Await.result(queryFuture, Duration.Inf).andThen {
-      case Success(_) =>  db.close()
-      case Failure(err) => println(err);
-    }
+    db.run(firmen.result)
   }
 
   def insertTeilnehmer(t: Teilnehmer): Unit ={
-    val queryFuture = Future {
-      db.run(teilnehmer += t)
-    }
-
-    Await.result(queryFuture, Duration.Inf).andThen {
-      case Success(_) =>  db.close()
-      case Failure(err) => println(err)
-    }
+    db.run(teilnehmer += t)
   }
 
   def insertFirma(f: Firma): Int={
