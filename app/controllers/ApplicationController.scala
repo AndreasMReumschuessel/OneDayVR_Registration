@@ -8,6 +8,11 @@ import slick.lifted.TableQuery
 import model.State
 import com.typesafe.config.ConfigFactory
 
+import scala.util.{Failure, Success}
+import scala.concurrent.{Future, Await}
+import scala.concurrent.duration.Duration
+import scala.concurrent.ExecutionContext.Implicits.global
+
 import scala.concurrent.Future
 import org.apache.commons.mail.{HtmlEmail}
 @Singleton
@@ -148,18 +153,31 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
   }
 
   def listAllFirma():Unit={
-    db.run(firmen.result)
+    val queryFuture = Future {
+      db.run(firmen.result)
+    }
+
+    Await.result(queryFuture, Duration.Inf).andThen {
+      case Success(_) =>  db.close()
+      case Failure(err) => println(err);
+    }
   }
 
   def insertTeilnehmer(t: Teilnehmer): Unit ={
-    db.run(teilnehmer += t)
+    val queryFuture = Future {
+      db.run(teilnehmer += t)
+    }
+
+    Await.result(queryFuture, Duration.Inf).andThen {
+      case Success(_) =>  db.close()
+      case Failure(err) => println(err)
+    }
   }
 
   def insertFirma(f: Firma): Int={
     val erg = db.run((firmen returning firmen.map(_.fnummer)) += f)
     while(!erg.isCompleted){} //we need to wait till the thread terminates ¯\_(ツ)_/¯
     erg.value.get.get
-
   }
 
 }
