@@ -54,7 +54,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         firmenname = getJsonString((json \ "firmenname").get.toString())
         if(firmenname.isEmpty)
             firmenname = firmaOptions //in case someone types nothing in instution
-        state.addDataEntry(firmenname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
+        state.addDataEntry(firmenname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.|&]{2,}")
       }catch{
         case ex: NoSuchElementException => println("[info] use privat teilnehmer")
       }
