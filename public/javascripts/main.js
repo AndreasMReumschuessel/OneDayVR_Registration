@@ -81,7 +81,6 @@ function successfullySubmitted() {
     jQuery('#success').modal()
     var frm = document.getElementsByName('registrationForm')[0];
     frm.reset();
-    jQuery('#firmenname').attr("disabled", "disabled");
 }
 
 function objectifyForm(formArray) {//serialize data function

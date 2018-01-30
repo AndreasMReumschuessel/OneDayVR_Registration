@@ -54,7 +54,7 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
         firmenname = getJsonString((json \ "firmenname").get.toString())
         if(firmenname.isEmpty)
             firmenname = firmaOptions //in case someone types nothing in instution
-        state.addDataEntry(firmenname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.]{2,}")
+        state.addDataEntry(firmenname, "^[A-z|üÜ|öÖ|äÄ|\\s|\\-\\.|&]{2,}")
       }catch{
         case ex: NoSuchElementException => println("[info] use privat teilnehmer")
       }
@@ -159,7 +159,6 @@ class ApplicationController @Inject()(cc: ControllerComponents) extends Abstract
     val erg = db.run((firmen returning firmen.map(_.fnummer)) += f)
     while(!erg.isCompleted){} //we need to wait till the thread terminates ¯\_(ツ)_/¯
     erg.value.get.get
-
   }
 
 }
