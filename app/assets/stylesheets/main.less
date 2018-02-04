@@ -106,10 +106,52 @@ body.btMenuHorizontal.btStickyHeaderActive.btDarkSkin .mainHeader {
   max-width: 400px;
 }
 .btHighlight > .rowItemContent {
-  border: solid 3px #fde825;
+  border: none;
 }
-#programm span {
-  color: #fff;
+
+#programm {
+  span {
+    color: #fff;
+  }
+  .programHeader {
+    background-color: #6633CC;
+  }
+  .firstDay {
+    span {
+      color: #000;
+    }
+    background-color: #fde825;
+    .programmSchedule {
+      color: #000000;
+      font-size: 20px;
+      p {
+        font-weight: 300;
+      }
+    }
+  }
+  .programDivider {
+    height: 55px;
+    background-color: #6633CC;
+  }
+  .programEnd {
+    height: 94px;
+    background-color: #fde825;
+  }
+  .secondDay {
+    span {
+      color: #4a4a4a;
+    }
+    p {
+      font-size: 20px;
+      color: #000000;
+    }
+    .col-md-6 .row {
+      margin-bottom: 38px;
+    }
+    .headline p {
+      color: #4a4a4a;
+    }
+  }
 }
 .tnp-firstname {
   background-color: #fff!important;
@@ -200,14 +242,12 @@ nav {
 .rowItemContent {
   padding: 40px!important;
 }
-#programm p {
-  font-family: 'GT Pressura Light', sans-serif;
-}
+
 #programm strong {
   font-family: "GT Pressura", sans-serif;
 }
 .programmDate {
-  font-size: 70px;
+  font-size: 70px!important;
   font-family: "GT Pressura"!important;
 }
 .programmDays {
@@ -219,8 +259,6 @@ nav {
 .programmTime {
   display: inline-block;
   vertical-align: top;
-  margin-right: 50px;
-  margin-top: 5px;
 }
 .programm {
   font-size: 20px;
