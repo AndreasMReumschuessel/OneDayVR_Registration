@@ -4,22 +4,22 @@ jQuery(document).ready(function () {
     jQuery('#firma').click(function () {
         jQuery('#firmenname').removeAttr("disabled");
         jQuery('#ticket').children().remove();
-        jQuery('#ticket').append("<option value=\"Workshop + Konferenz 75€\">Workshop + Konferenz 75€</option>\n" +
-            "<option value=\"Konferenz 50€\">Konferenz 50€</option>")
+        jQuery('#ticket').append("<option value=\"Konferenz 50€\">Konferenz 50€</option>\n" +
+            "<option value=\"Workshop + Konferenz 75€\">Workshop + Konferenz 75€ / AUSGEBUCHT</option>")
     });
 
     jQuery('#privat').click(function () {
         jQuery('#firmenname').attr("disabled", "disabled");
         jQuery('#ticket').children().remove();
-        jQuery('#ticket').append("<option value=\"Workshop + Konferenz 75€\">Workshop + Konferenz 75€</option>\n" +
-            "<option value=\"Konferenz 50€\">Konferenz 50€</option>")
+        jQuery('#ticket').append("<option value=\"Konferenz 50€\">Konferenz 50€</option>\n" +
+            "<option value=\"Workshop + Konferenz 75€\">Workshop + Konferenz 75€ / AUSGEBUCHT</option>")
     });
 
     jQuery("#student").click(function() {
         jQuery('#firmenname').removeAttr("disabled");
         jQuery('#ticket').children().remove();
-        jQuery('#ticket').append("<option value=\"Workshop + Konferenz 0€\">Workshop + Konferenz 0€</option>\n" +
-            "<option value=\"Konferenz 0€\">Konferenz 0€</option>")
+        jQuery('#ticket').append("<option value=\"Konferenz 0€\">Konferenz 0€</option>\n" +
+            "<option value=\"Workshop + Konferenz 0€\">Workshop + Konferenz 0€ / AUSGEBUCHT</option>")
     })
 
     jQuery("#premium").click(function() {
